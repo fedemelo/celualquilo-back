@@ -54,7 +54,7 @@ pipeline {
             script {
                docker.image('citools-isis2603:latest').inside('-u root') {
                   sh '''
-                     npm run test
+                     npm run test:cov
                   '''
                }
             }
