@@ -43,7 +43,6 @@ pipeline {
                docker.image('citools-isis2603:latest').inside('-u root') {
                   sh '''
                      npm i -s
-                     npm i typescript@3.9.5
                      nest build
                   '''
                }
