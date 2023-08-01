@@ -64,10 +64,13 @@ pipeline {
        }
     }
     post {
-       always {
-          // Clean workspace
-          cleanWs deleteDirs: true
-       }
-    }
-  }
+      always {
+        cleanWs()
+        deleteDir() 
+        dir("${env.GIT_REPO}@tmp") {
+          deleteDir()
+        }
+      }
+   }
+}
   
