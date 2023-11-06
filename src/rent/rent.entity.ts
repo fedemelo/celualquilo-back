@@ -1,6 +1,7 @@
 import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 // import { UserEntity } from "src/user/user.entity";
 import { PhoneEntity } from "src/phone/phone.entity";
+import { UserEntity } from "src/user/user.entity/user.entity";
 
 @Entity()
 export class RentEntity {
@@ -31,8 +32,6 @@ export class RentEntity {
     @ManyToOne(() => PhoneEntity, phone => phone.rents)
     phone: PhoneEntity;
 
-    // @ManyToOne(() => UserEntity, user => user.rents, {
-    //     onDelete: 'CASCADE'
-    // })
-    // user: UserEntity;
+    @ManyToOne(() => UserEntity, user => user.rents)
+    user: UserEntity;
 }

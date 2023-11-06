@@ -1,7 +1,9 @@
 /* eslint-disable prettier/prettier */
-import { Column, Entity, PrimaryGeneratedColumn, OneToOne, JoinColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, OneToOne, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
 import { BrandEntity } from '../brand/brand.entity';
 import { RentEntity } from 'src/rent/rent.entity';
+import { UserEntity } from 'src/user/user.entity/user.entity';
+import { ReviewEntity } from 'src/review/review.entity/review.entity';
 
 @Entity()
 export class PhoneEntity {
@@ -14,9 +16,6 @@ export class PhoneEntity {
 
     @Column()
     pricePerDay: string;
-
-    @Column()
-    address: number;
 
     @Column()
     stock: number;
@@ -42,22 +41,14 @@ export class PhoneEntity {
     @OneToMany(() => RentEntity, rent => rent.phone)
     rents: RentEntity[];
 
-    /*
     @OneToMany(() => ReviewEntity, review => review.phone) 
-       reviews: ReviewEntity[];
-    */
+    reviews: ReviewEntity[];
 
-    /*
-    @ManyToOne(() => UserEntity, user => user.phones)
-       user: UserEntity;
-    */
+    @ManyToOne(() => UserEntity, user => user.favorites)
+    user: UserEntity;
 
-    @OneToOne(() => BrandEntity, brand => brand.phone)
-    @JoinColumn()
+    @OneToMany(() => BrandEntity, brand => brand.phones) 
     brand: BrandEntity;
 
 }
 
-function OneToMany(arg0: () => typeof RentEntity, arg1: (rent: any) => any): (target: PhoneEntity, propertyKey: "rents") => void {
-    throw new Error('Function not implemented.');
-}

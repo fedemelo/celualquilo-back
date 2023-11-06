@@ -1,5 +1,5 @@
 import { PhoneEntity } from "src/phone/phone.entity";
-import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class BrandEntity {
@@ -12,6 +12,6 @@ export class BrandEntity {
     @Column()
     image: string;
 
-    @OneToOne(() => PhoneEntity, phone => phone.brand)
-    phone: PhoneEntity;
+    @ManyToOne(() => PhoneEntity, phone => phone.brand)
+    phones: PhoneEntity[];
 }

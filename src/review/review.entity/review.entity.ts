@@ -1,5 +1,7 @@
 /* eslint-disable prettier/prettier */
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { PhoneEntity } from 'src/phone/phone.entity';
+import { UserEntity } from 'src/user/user.entity/user.entity';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class ReviewEntity {
@@ -13,4 +15,11 @@ export class ReviewEntity {
     @Column()
     text: string;
 
+    @ManyToOne(() => PhoneEntity, phone => phone.reviews)
+    phone: PhoneEntity;
+
+    @ManyToOne(() => UserEntity, user => user.reviews)
+    user: UserEntity;
+
+    
 }
