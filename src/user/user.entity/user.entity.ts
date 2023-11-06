@@ -28,7 +28,4 @@ export class UserEntity {
     @OneToMany(() => RentEntity, rent => rent.user)
     rents: RentEntity[];
 
-
-    
-
 }

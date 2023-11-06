@@ -1,5 +1,5 @@
 import { PhoneEntity } from "src/phone/phone.entity";
-import { Column, Entity, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class BrandEntity {

@@ -1,5 +1,4 @@
-import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-// import { UserEntity } from "src/user/user.entity";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { PhoneEntity } from "src/phone/phone.entity";
 import { UserEntity } from "src/user/user.entity/user.entity";
 
