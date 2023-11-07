@@ -4,9 +4,9 @@ import { UserEntity } from "../user/user.entity";
 
 @Entity()
 export class RentEntity {
-    @PrimaryGeneratedColumn()
-    id: number;
-
+    @PrimaryGeneratedColumn('uuid')
+    id: string;
+    
     @Column()
     isActive: boolean;
 

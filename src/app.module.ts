@@ -12,6 +12,7 @@ import { RentEntity } from './rent/rent.entity';
 import { ReviewEntity } from './review/review.entity';
 import { UserEntity } from './user/user.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { UserRentModule } from './user-rent/user-rent.module';
 
 @Module({
   imports: [PhoneModule, BrandModule, RentModule, ReviewModule, UserModule,
@@ -27,6 +28,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     synchronize: true,
     keepConnectionAlive: true,
   }),
+  UserRentModule,
 ],
   controllers: [AppController],
   providers: [AppService],
