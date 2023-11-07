@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
-import { PhoneEntity } from 'src/phone/phone.entity';
-import { UserEntity } from 'src/user/user.entity/user.entity';
+import { PhoneEntity } from '../phone/phone.entity';
+import { UserEntity } from '../user/user.entity';
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()

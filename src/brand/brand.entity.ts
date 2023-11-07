@@ -1,4 +1,5 @@
-import { PhoneEntity } from "src/phone/phone.entity";
+
+import { PhoneEntity } from "../phone/phone.entity";
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()

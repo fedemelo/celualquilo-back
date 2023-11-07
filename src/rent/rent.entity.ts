@@ -1,6 +1,6 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { PhoneEntity } from "src/phone/phone.entity";
-import { UserEntity } from "src/user/user.entity/user.entity";
+import { PhoneEntity } from "../phone/phone.entity";
+import { UserEntity } from "../user/user.entity";
 
 @Entity()
 export class RentEntity {

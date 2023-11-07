@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
-import { PhoneEntity } from 'src/phone/phone.entity';
-import { RentEntity } from 'src/rent/rent.entity';
-import { ReviewEntity } from 'src/review/review.entity/review.entity';
+import { PhoneEntity } from '../phone/phone.entity';
+import { RentEntity } from '../rent/rent.entity';
+import { ReviewEntity } from '../review/review.entity';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()

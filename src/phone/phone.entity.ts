@@ -1,9 +1,9 @@
 /* eslint-disable prettier/prettier */
-import { Column, Entity, PrimaryGeneratedColumn, OneToOne, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, ManyToOne, OneToMany } from 'typeorm';
 import { BrandEntity } from '../brand/brand.entity';
-import { RentEntity } from 'src/rent/rent.entity';
-import { UserEntity } from 'src/user/user.entity/user.entity';
-import { ReviewEntity } from 'src/review/review.entity/review.entity';
+import { RentEntity } from '../rent/rent.entity';
+import { UserEntity } from '../user/user.entity';
+import { ReviewEntity } from '../review/review.entity';
 
 @Entity()
 export class PhoneEntity {
