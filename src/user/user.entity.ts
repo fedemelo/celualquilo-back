@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+import { Exclude } from 'class-transformer';
 import { PhoneEntity } from '../phone/phone.entity';
 import { RentEntity } from '../rent/rent.entity';
 import { ReviewEntity } from '../review/review.entity';
@@ -17,6 +18,7 @@ export class UserEntity {
     email: string;
 
     @Column()
+    @Exclude({ toPlainOnly: true})
     password: string;
 
     @OneToMany(() => PhoneEntity, phone => phone.user)
