@@ -24,6 +24,14 @@ export class UserService {
     }
 
     async create(user: UserEntity): Promise<UserEntity> {
+        const password: string = user.password;
+        if (password.length < 8 || RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])/).exec(password) === null) {
+            throw new BusinessLogicException("The password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number and one special character", BusinessError.BAD_REQUEST);
+        }
+        const email: string = user.email;
+        if (RegExp(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/).exec(email) === null) {
+            throw new BusinessLogicException("The email is not valid", BusinessError.BAD_REQUEST);
+        }
         return await this.userRepository.save(user);
     }
 
@@ -33,6 +41,14 @@ export class UserService {
             throw new BusinessLogicException("The user with the given id was not found", BusinessError.NOT_FOUND);
         }
         user.id = persistedUser.id;
+        const password: string = user.password;
+        if (password.length < 8 || RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])/).exec(password) === null) {
+            throw new BusinessLogicException("The password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number and one special character", BusinessError.BAD_REQUEST);
+        }
+        const email: string = user.email;
+        if (RegExp(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/).exec(email) === null) {
+            throw new BusinessLogicException("The email is not valid", BusinessError.BAD_REQUEST);
+        }
         return await this.userRepository.save(user);
     }
 

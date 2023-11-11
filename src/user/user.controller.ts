@@ -12,12 +12,20 @@ export class UserController {
 
   @Get()
   async findAll() {
-    return await this.userService.findAll();
+    const users = await this.userService.findAll();
+    let usersNoPassword = [];
+    users.forEach(user => {
+      delete user.password;
+      usersNoPassword.push(user);
+    });
+    return usersNoPassword;
   }
 
   @Get(':userId')
   async findOne(@Param('userId') userId: string) {
-    return await this.userService.findOne(userId);
+    const user = await this.userService.findOne(userId);
+    delete user.password;
+    return user;
   }
 
   @Post()
@@ -33,7 +41,7 @@ export class UserController {
     const user: UserEntity = plainToInstance(UserEntity, userDto);
     const user1 = await this.userService.update(userId, user);
     delete user1.password;
-    return await user1;
+    return user1;
   }
 
   @Delete(':userId')

@@ -62,8 +62,8 @@ describe('UserService', () => {
     const User: UserEntity = {
       id: "",
       name: faker.lorem.word(),
-      email: faker.internet.email(),
-      password: faker.internet.password(),
+      email: "emaildeprueba@gmail.com",
+      password: "Password123$$",
       favorites: [],
       reviews: [],
       rents: []
@@ -79,10 +79,39 @@ describe('UserService', () => {
     expect(storedUser.password).toEqual(newUser.password)
   });
 
+  it('create should return an Exception for an invalid email', async () => {
+    const User: UserEntity = {
+      id: "",
+      name: faker.lorem.word(),
+      email: "email invalido",
+      password: "Password123$$",
+      favorites: [],
+      reviews: [],
+      rents: []
+    }
+
+    await expect(() => service.create(User)).rejects.toHaveProperty("message", "The email is not valid")
+  });
+
+  it('create should return an Exception for an invalid password', async () => {
+    const User: UserEntity = {
+      id: "",
+      name: faker.lorem.word(),
+      email: "emaildeprueba@gmail.com",
+      password: "Password invalido",
+      favorites: [],
+      reviews: [],
+      rents: []
+    }
+
+    await expect(() => service.create(User)).rejects.toHaveProperty("message", "The password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number and one special character")
+  });
+
   it('update should modify a user', async () => {
     const User: UserEntity = usersList[0];
     User.name = "New name";
-    User.email = "New email";
+    User.email= "emaildeprueba@gmail.com";
+    User.password= "Password123$$";
   
     const updatedUser: UserEntity = await service.update(User.id, User);
     expect(updatedUser).not.toBeNull();
@@ -99,6 +128,34 @@ describe('UserService', () => {
       ...User, name: "New name", email: "New email"
     }
     await expect(() => service.update("0", User)).rejects.toHaveProperty("message", "The user with the given id was not found")
+  });
+
+  it('update should return an Exception for an invalid email', async () => {
+    const User: UserEntity = {
+      id: "",
+      name: faker.lorem.word(),
+      email: "email invalido",
+      password: "Password123$$",
+      favorites: [],
+      reviews: [],
+      rents: []
+    }
+
+    await expect(() => service.create(User)).rejects.toHaveProperty("message", "The email is not valid")
+  });
+
+  it('update should return an Exception for an invalid password', async () => {
+    const User: UserEntity = {
+      id: "",
+      name: faker.lorem.word(),
+      email: "email@gmail.com",
+      password: "Password invalido",
+      favorites: [],
+      reviews: [],
+      rents: []
+    }
+
+    await expect(() => service.create(User)).rejects.toHaveProperty("message", "The password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number and one special character")
   });
 
   it('delete should remove a user', async () => {
