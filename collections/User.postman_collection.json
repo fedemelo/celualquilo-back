@@ -112,7 +112,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\":\"Pepito Pérez\",\n    \"email\": \"p.perez@gmail.com\",\n    \"password\": \"pepitoelmejor1234$$\"\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -192,7 +192,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\":\"Pepito Pérez\",\n    \"email\": \"p.perez@gmail.com\",\n    \"password\": \"pepitoelmejor1234$$\"\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -272,7 +272,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\":\"Pepito Pérez\",\n    \"email\": \"p.perez@gmail.com\",\n    \"password\": \"pepitoelmejor1234$$\"\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"

@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Column, Entity, PrimaryGeneratedColumn, ManyToOne, OneToMany } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, ManyToOne, OneToMany, OneToOne, JoinColumn } from 'typeorm';
 import { BrandEntity } from '../brand/brand.entity';
 import { RentEntity } from '../rent/rent.entity';
 import { UserEntity } from '../user/user.entity';
@@ -41,13 +41,16 @@ export class PhoneEntity {
     @OneToMany(() => RentEntity, rent => rent.phone)
     rents: RentEntity[];
 
-    @OneToMany(() => ReviewEntity, review => review.phone) 
+    @OneToMany(() => ReviewEntity, review => review.phone)
     reviews: ReviewEntity[];
 
     @ManyToOne(() => UserEntity, user => user.favorites)
     user: UserEntity;
 
-    @OneToMany(() => BrandEntity, brand => brand.phones) 
+    @OneToOne(() => BrandEntity, brand => brand.phone, {
+        onDelete: 'CASCADE'
+    })
+    @JoinColumn()
     brand: BrandEntity;
 
 }

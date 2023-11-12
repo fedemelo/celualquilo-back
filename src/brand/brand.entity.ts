@@ -1,11 +1,11 @@
 
 import { PhoneEntity } from "../phone/phone.entity";
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class BrandEntity {
-    @PrimaryGeneratedColumn()
-    id: number;
+    @PrimaryGeneratedColumn('uuid')
+    id: string;
 
     @Column()
     name: string;
@@ -13,6 +13,6 @@ export class BrandEntity {
     @Column()
     image: string;
 
-    @ManyToOne(() => PhoneEntity, phone => phone.brand)
-    phones: PhoneEntity[];
+    @OneToOne(() => PhoneEntity, phone => phone.brand)
+    phone: PhoneEntity;
 }

@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "81c07c17-0853-4cda-b407-30f58726d22a",
+		"_postman_id": "6425bbe5-0f5d-4579-ac4b-f70cbf9d91ae",
 		"name": "Rent",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "30845515",
-		"_collection_link": "https://crimson-resonance-699820.postman.co/workspace/Team-Workspace~40cc1ce4-a435-4edb-80f2-98b1c018dc0f/collection/30845479-81c07c17-0853-4cda-b407-30f58726d22a?action=share&source=collection_link&creator=30845515"
+		"_collection_link": "https://crimson-resonance-699820.postman.co/workspace/Team-Workspace~40cc1ce4-a435-4edb-80f2-98b1c018dc0f/collection/30845515-6425bbe5-0f5d-4579-ac4b-f70cbf9d91ae?action=share&source=collection_link&creator=30845515"
 	},
 	"item": [
 		{
@@ -30,7 +30,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\":\"Pepito Pérez\",\n    \"email\": \"p.perez@gmail.com\",\n    \"password\": \"Pepitoelmejor1234$$\"\n}",
+					"raw": "{\n    \"isActive\": true,\n    \"startDate\": \"2023-11-11T00:00:00.000Z\",\n    \"endDate\": \"2023-12-11T00:00:00.000Z\",\n    \"paymentMethod\": \"Credit card\",\n    \"address\": \"Musterstraße 123\",\n    \"city\": \"Berlin\",\n    \"telephoneNumber\": \"+491234567890\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -112,7 +112,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\":\"Pepito Pérez\",\n    \"email\": \"p.perez@gmail.com\",\n    \"password\": \"pepitoelmejor1234$$\"\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -192,7 +192,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\":\"Pepito Pérez\",\n    \"email\": \"p.perez@gmail.com\",\n    \"password\": \"pepitoelmejor1234$$\"\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -272,7 +272,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\":\"Pepito Pérez\",\n    \"email\": \"p.perez@gmail.com\",\n    \"password\": \"pepitoelmejor1234$$\"\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -342,7 +342,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\":\"Pepito Pérez Piña\",\n    \"email\": \"p.perez@uniandes.edu.co\",\n    \"password\": \"Pepitoelmejor1234$$\"\n}",
+					"raw": "{\n    \"isActive\": true,\n    \"startDate\": \"2023-10-15T08:00:00.000Z\",\n    \"endDate\": \"2023-11-15T08:00:00.000Z\",\n    \"paymentMethod\": \"Cash\",\n    \"address\": \"Hauptstraße 456\",\n    \"city\": \"München\",\n    \"telephoneNumber\": \"+49876543210\"\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -428,7 +428,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\":\"Pepito Pérez\",\n    \"email\": \"p.perez@uniandes.edu.co\",\n    \"password\": \"Pepitoelmejor1234$$\"\n}",
+					"raw": "{\n    \"isActive\": true,\n    \"startDate\": \"2023-10-15T08:00:00.000Z\",\n    \"endDate\": \"2023-11-15T08:00:00.000Z\",\n    \"paymentMethod\": \"Cash\",\n    \"address\": \"Hauptstraße 456\",\n    \"city\": \"München\",\n    \"telephoneNumber\": \"+49876543210\"\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -537,10 +537,10 @@
 					},
 					"status": "No Content",
 					"code": 204,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},

@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsString, IsUrl } from "class-validator";
+import { IsNotEmpty, IsString } from "class-validator";
 
 export class BrandDto {
 
@@ -6,11 +6,7 @@ export class BrandDto {
     @IsString()
     readonly name: string;
 
-    @IsNotEmpty()
     @IsString()
-    readonly description: string;
-
     @IsNotEmpty()
-    @IsUrl()
-    readonly website: string;
+    readonly image: string;
 }
