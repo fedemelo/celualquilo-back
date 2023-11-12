@@ -8,7 +8,7 @@
 	},
 	"item": [
 		{
-			"name": "Add an Rent",
+			"name": "Create a rent",
 			"event": [
 				{
 					"listen": "test",
@@ -31,6 +31,164 @@
 				"body": {
 					"mode": "raw",
 					"raw": "{\n    \"isActive\": true,\n    \"startDate\": \"2023-11-11T00:00:00.000Z\",\n    \"endDate\": \"2023-12-11T00:00:00.000Z\",\n    \"paymentMethod\": \"Credit card\",\n    \"address\": \"Musterstraße 123\",\n    \"city\": \"Berlin\",\n    \"telephoneNumber\": \"+491234567890\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/rents",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"rents"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add an Rent",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Pepito Pérez\",\n    \"email\": \"p.perez@gmail.com\",\n    \"password\": \"pepitoelmejor1234$$\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/rents",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"rents"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\":\"48a9ab90-1276-11ed-861d-0242ac120005\",\n    \"name\": \"Pepito Pérez\",\n    \"email\": \"p.perez@gmail.com\",\n    \"password\": \"pepitoelmejor1234$$\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Create a Rent with invalid payment method",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"isActive\": true,\n    \"startDate\": \"2023-11-11T00:00:00.000Z\",\n    \"endDate\": \"2023-12-11T00:00:00.000Z\",\n    \"paymentMethod\": \"Other\",\n    \"address\": \"Musterstraße 123\",\n    \"city\": \"Berlin\",\n    \"telephoneNumber\": \"+491234567890\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/rents",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"rents"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add an Rent",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Pepito Pérez\",\n    \"email\": \"p.perez@gmail.com\",\n    \"password\": \"pepitoelmejor1234$$\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/rents",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"rents"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\":\"48a9ab90-1276-11ed-861d-0242ac120005\",\n    \"name\": \"Pepito Pérez\",\n    \"email\": \"p.perez@gmail.com\",\n    \"password\": \"pepitoelmejor1234$$\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Create a rent with invalid phone number",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"isActive\": true,\n    \"startDate\": \"2023-11-11T00:00:00.000Z\",\n    \"endDate\": \"2023-12-11T00:00:00.000Z\",\n    \"paymentMethod\": \"Credit card\",\n    \"address\": \"Musterstraße 123\",\n    \"city\": \"Berlin\",\n    \"telephoneNumber\": \"nn4291-34323-44\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -343,6 +501,168 @@
 				"body": {
 					"mode": "raw",
 					"raw": "{\n    \"isActive\": true,\n    \"startDate\": \"2023-10-15T08:00:00.000Z\",\n    \"endDate\": \"2023-11-15T08:00:00.000Z\",\n    \"paymentMethod\": \"Cash\",\n    \"address\": \"Hauptstraße 456\",\n    \"city\": \"München\",\n    \"telephoneNumber\": \"+49876543210\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/rents/{{rent_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"rents",
+						"{{rent_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update an Rent",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Pepito Pérez\",\n    \"email\": \"p.perez@uniandes.edu.co\",\n    \"password\": \"pepitoelmejor1234$$\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/rents/{{rent_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"rents",
+								"{{rent_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120005\",\n    \"name\": \"Pepito Pérez\",\n    \"email\": \"p.perez@uniandes.edu.co\",\n    \"password\": \"pepitoelmejor1234$$\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update an Rent with invalid payment method",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"   pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"isActive\": true,\n    \"startDate\": \"2023-10-15T08:00:00.000Z\",\n    \"endDate\": \"2023-11-15T08:00:00.000Z\",\n    \"paymentMethod\": \"Extra\",\n    \"address\": \"Hauptstraße 456\",\n    \"city\": \"München\",\n    \"telephoneNumber\": \"+49876543210\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/rents/{{rent_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"rents",
+						"{{rent_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update an Rent",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Pepito Pérez\",\n    \"email\": \"p.perez@uniandes.edu.co\",\n    \"password\": \"pepitoelmejor1234$$\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/rents/{{rent_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"rents",
+								"{{rent_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120005\",\n    \"name\": \"Pepito Pérez\",\n    \"email\": \"p.perez@uniandes.edu.co\",\n    \"password\": \"pepitoelmejor1234$$\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update an Rent with invalid phone number",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"   pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"isActive\": true,\n    \"startDate\": \"2023-10-15T08:00:00.000Z\",\n    \"endDate\": \"2023-11-15T08:00:00.000Z\",\n    \"paymentMethod\": \"Cash\",\n    \"address\": \"Hauptstraße 456\",\n    \"city\": \"München\",\n    \"telephoneNumber\": \"+49 abc 876543210\"\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"

@@ -9,14 +9,13 @@ enum PaymentMethod {
     CASH = 'Cash',
     CREDIT_CARD = 'Credit card',
     DEBIT_CARD = 'Debit card',
-    PAYPAL = 'Paypal',
 }
 
 @Injectable()
 export class RentService {
 
     RENT_NOT_FOUND: string = "The rent with the given id was not found";
-    INVALID_PAYMENT_METHOD: string = "The payment method must be one of the following: Cash, Credit card, Debit card, Paypal";
+    INVALID_PAYMENT_METHOD: string = "The payment method must be one of the following: Cash, Credit card, Debit card";
     INVALID_PHONE_NUMBER: string = "The phone number may only include spaces, hyphens, and a regional code starting with '+'.";
 
     constructor(

@@ -30,7 +30,113 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Apple\",\r\n    \"image\": \"<apple_logo_url>\"\r\n}",
+					"raw": "{\r\n    \"name\": \"Apple\",\r\n    \"image\": \"https://www.svgrepo.com/show/69341/apple-logo.svg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/brands",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"brands"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create a new brand",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Credit Suisse\",\r\n    \"description\": \"Credit Suisse has a long and distinguished tradition of supporting the arts, working with leading cultural institutions to encourage innovative projects and wider access to theatre, music, and the visual arts.\",\r\n    \"website\": \"https://www.credit-suisse.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{host}}/api/brands",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"brands"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "300"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"12c-VlfD7pODqWP8t8q/a5s50HlMheA\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Mar 2022 17:00:56 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"name\": \"Credit Suisse\",\n    \"description\": \"Credit Suisse has a long and distinguished tradition of supporting the arts, working with leading cultural institutions to encourage innovative projects and wider access to theatre, music, and the visual arts.\",\n    \"website\": \"https://www.credit-suisse.com\",\n    \"id\": 33\n}"
+				}
+			]
+		},
+		{
+			"name": "Create brand with invalid image",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Apple\",\r\n    \"image\": \"bad apple logo url\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -404,6 +510,114 @@
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Samsung\",\r\n    \"image\": \"<samsung_logo_url>\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/brands/{{brand_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"brands",
+						"{{brand_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update a brand",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Credit Suisse\",\r\n    \"description\": \"Credit Suisse has a long and distinguished tradition of supporting the arts, working with leading cultural institutions to encourage innovative projects and wider access to theatre, music, and the visual arts.\",\r\n    \"website\": \"https://www.credit-suisse.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{host}}/api/brands/{{brand_id}}",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"brands",
+								"{{brand_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "300"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"12c-SyW5hKsdYN7gARpUe0u7Q3qtGMU\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Mar 2022 17:01:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 33,\n    \"name\": \"Credit Suisse\",\n    \"description\": \"Credit Suisse has a long and distinguished tradition of supporting the arts, working with leading cultural institutions to encourage innovative projects and wider access to theatre, music, and the visual arts.\",\n    \"website\": \"https://www.credit-suisse.com\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update a brand with invalid image",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
 							"});"
 						],
 						"type": "text/javascript"

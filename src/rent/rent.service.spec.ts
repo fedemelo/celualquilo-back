@@ -10,7 +10,6 @@ enum PaymentMethod {
     CASH = 'Cash',
     CREDIT_CARD = 'Credit card',
     DEBIT_CARD = 'Debit card',
-    PAYPAL = 'Paypal',
 }
 
 describe('RentService', () => {
@@ -19,7 +18,7 @@ describe('RentService', () => {
     let rentsList: RentEntity[];
 
     const RENT_NOT_FOUND: string = "The rent with the given id was not found";
-    const INVALID_PAYMENT_METHOD: string = "The payment method must be one of the following: Cash, Credit card, Debit card, Paypal";
+    const INVALID_PAYMENT_METHOD: string = "The payment method must be one of the following: Cash, Credit card, Debit card";
     const INVALID_PHONE_NUMBER: string = "The phone number may only include spaces, hyphens, and a regional code starting with '+'.";
 
 
