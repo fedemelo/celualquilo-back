@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsString, IsBoolean } from "class-validator";
+import { IsNotEmpty, IsString, IsBoolean, IsEnum } from "class-validator";
 
 export class RentDto {
 
@@ -16,6 +16,7 @@ export class RentDto {
 
     @IsNotEmpty()
     @IsString()
+    @IsEnum(["CASH", "CREDIT_CARD", "DEBIT_CARD", "PAYPAL"])
     readonly paymentMethod: string;
 
     @IsNotEmpty()
