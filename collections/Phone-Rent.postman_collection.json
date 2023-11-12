@@ -1,0 +1,284 @@
+{
+	"info": {
+		"_postman_id": "e6057ba5-3645-4b56-9529-41bb26d787cd",
+		"name": "Phone-Rent",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30845515",
+		"_collection_link": "https://crimson-resonance-699820.postman.co/workspace/Team-Workspace~40cc1ce4-a435-4edb-80f2-98b1c018dc0f/collection/30845479-e6057ba5-3645-4b56-9529-41bb26d787cd?action=share&source=collection_link&creator=30845515"
+	},
+	"item": [
+		{
+			"name": "Add Rent of a Phone",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"48a9ab90-1276-11ed-861d-02423ad3243\",\r\n    \"isActive\": true,\r\n    \"startDate\":  \"2023-10-31T01:30:00.000-05:00\",\r\n    \"endDate\":  \"2023-11-26T01:30:00.000-05:00\",\r\n    \"paymentMethod\": \"cash\",\r\n    \"address\": \"Calle 136#48c-21\",\r\n    \"city\": \"Bogotá\",\r\n    \"telephoneNumber\": 3236277382\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}/rents/{{rent_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}",
+						"rents",
+						"{{rent_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add invalid Rent of a Phone",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"99999999\",\r\n    \"isActive\": true,\r\n    \"startDate\":  \"2023-10-31T01:30:00.000-05:00\",\r\n    \"endDate\":  \"2023-11-26T01:30:00.000-05:00\",\r\n    \"paymentMethod\": \"card\",\r\n    \"address\": \"Calle 136#48c-21\",\r\n    \"city\": \"Bogotá\",\r\n    \"telephoneNumber\": 3236277382\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}/rents/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}",
+						"rents",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Rents of a Phone",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}/rents",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}",
+						"rents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a Rent of a Phone",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}/rents/{{rent_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}",
+						"rents",
+						"{{rent_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get an invalid Rent of a Phone",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}/rents/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}",
+						"rents",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a non-associated Request of a Phone",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}/rents/{{rent_id_2}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}",
+						"rents",
+						"{{rent_id_2}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Rent of a Phone",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"48a9ab90-1276-11ed-861d-02423ad3243\",\r\n    \"isActive\": true,\r\n    \"startDate\":  \"2023-10-31T01:30:00.000-05:00\",\r\n    \"endDate\":  \"2023-11-26T01:30:00.000-05:00\",\r\n    \"paymentMethod\": \"cash\",\r\n    \"address\": \"Calle 136#48c-21\",\r\n    \"city\": \"Bogotá\",\r\n    \"telephoneNumber\": 3236277382\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}/rents/{{rent_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}",
+						"rents",
+						"{{rent_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a non-associated Request from a Phone",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}/rents/{{rent_id_2}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}",
+						"rents",
+						"{{rent_id_2}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update invalid Rent of a Phone",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"48a9ab90-1276-11ed-861d-02423ad3243\",\r\n    \"isActive\": true,\r\n    \"startDate\":  \"2023-10-31T01:30:00.000-05:00\",\r\n    \"endDate\":  \"2023-11-26T01:30:00.000-05:00\",\r\n    \"paymentMethod\": \"cash\",\r\n    \"address\": \"Calle 136#48c-21\",\r\n    \"city\": \"Bogotá\",\r\n    \"telephoneNumber\": 3236277382\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}/rents/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}",
+						"rents",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Rent of a Phone",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}/rents/{{rent_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}",
+						"rents",
+						"{{rent_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete invalid Rent of a Phone",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"99999999\",\r\n    \"isActive\": true,\r\n    \"startDate\":  \"2023-10-31T01:30:00.000-05:00\",\r\n    \"endDate\":  \"2023-11-26T01:30:00.000-05:00\",\r\n    \"paymentMethod\": \"card\",\r\n    \"address\": \"Calle 136#48c-21\",\r\n    \"city\": \"Bogotá\",\r\n    \"telephoneNumber\": 3236277382\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}/rents/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}",
+						"rents",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

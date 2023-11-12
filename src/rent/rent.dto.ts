@@ -1,6 +1,4 @@
-import { IsNotEmpty, IsNumber, IsString, IsBoolean } from "class-validator";
-// import { UserDto } from "src/user/user.dto";
-// import { PhoneDto } from "src/phone/phone.dto";
+import { IsNotEmpty, IsString, IsBoolean } from "class-validator";
 
 export class RentDto {
 
@@ -31,10 +29,4 @@ export class RentDto {
     @IsNotEmpty()
     @IsString()
     readonly telephoneNumber: string;
-
-    // @IsNotEmpty()
-    // readonly phone: PhoneDto;
-
-    // @IsNotEmpty()
-    // readonly user: UserDto;
 }

@@ -1,0 +1,180 @@
+{
+	"info": {
+		"_postman_id": "83fcecc9-220b-4c63-8ac3-5fd32925a958",
+		"name": "Phone",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30845515",
+		"_collection_link": "https://crimson-resonance-699820.postman.co/workspace/Team-Workspace~40cc1ce4-a435-4edb-80f2-98b1c018dc0f/collection/30845479-83fcecc9-220b-4c63-8ac3-5fd32925a958?action=share&source=collection_link&creator=30845515"
+	},
+	"item": [
+		{
+			"name": "Add a Phone",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"IPhone 22\",\r\n    \"pricePerDay\":35000,\r\n    \"stock\":2,\r\n    \"cameraSpecs\":\" 26 mm, ƒ/1.5 aperture, sensor‑shift optical image stabilization, 100% Focus Pixels.\",\r\n    \"memorySpecs\":\"128GB\",\r\n    \"screenSpecs\":\"6.1‑inch (diagonal) all‑screen OLED display\",\r\n    \"isLastGeneration\": false,\r\n    \"isOnSale\":true,\r\n    \"image\":\"https://tiendasishop.com/media/catalog/product/i/p/iphone_14_purple_pdp_image_position-1a_laes.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/phones",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Phones",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/phones",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get A Phone",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get an invalid Phone",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/phones/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update A Phone",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"iPhone 14\",\r\n    \"pricePerDay\":35000,\r\n    \"stock\":2,\r\n    \"cameraSpecs\":\" 26 mm, ƒ/1.5 aperture, sensor‑shift optical image stabilization, 100% Focus Pixels.\",\r\n    \"memorySpecs\":\"256GB\",\r\n    \"screenSpecs\":\"6.1‑inch (diagonal) all‑screen OLED display\",\r\n    \"isLastGeneration\": false,\r\n    \"isOnSale\":true,\r\n    \"image\":\"https://tiendasishop.com/media/catalog/product/i/p/iphone_14_purple_pdp_image_position-1a_laes.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update an invalid User",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"iPhone 14\",\r\n    \"pricePerDay\":35000,\r\n    \"stock\":2,\r\n    \"cameraSpecs\":\" 26 mm, ƒ/1.5 aperture, sensor‑shift optical image stabilization, 100% Focus Pixels.\",\r\n    \"memorySpecs\":\"256GB\",\r\n    \"screenSpecs\":\"6.1‑inch (diagonal) all‑screen OLED display\",\r\n    \"isLastGeneration\": false,\r\n    \"isOnSale\":true,\r\n    \"image\":\"https://tiendasishop.com/media/catalog/product/i/p/iphone_14_purple_pdp_image_position-1a_laes.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/phones/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete A Phone",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete an invalid Phone",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/phones/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
