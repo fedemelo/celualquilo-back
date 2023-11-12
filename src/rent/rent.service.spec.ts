@@ -28,6 +28,15 @@ describe('RentService', () => {
         return Object.values(PaymentMethod)[Math.floor(Math.random() * Object.values(PaymentMethod).length)];
     }
 
+    const generatePhoneNumber = () => {
+        const phoneNumbers: string[] = [
+            '555 123-4567',
+            '+1 555 987-6543',
+            '12-800-555-1234',
+          ];
+        return phoneNumbers[Math.floor(Math.random() * phoneNumbers.length)];
+    }
+
     beforeEach(async () => {
         const module: TestingModule = await Test.createTestingModule({
             imports: [...TypeOrmTestingConfig()],
@@ -51,7 +60,7 @@ describe('RentService', () => {
                 paymentMethod: getRandomPaymentMethod(), 
                 address: faker.lorem.word(),
                 city: faker.lorem.word(),
-                telephoneNumber: faker.phone.number(),
+                telephoneNumber: generatePhoneNumber(),
             });
             rentsList.push(rent);
             switchActive = !switchActive;
@@ -94,7 +103,7 @@ describe('RentService', () => {
             paymentMethod: getRandomPaymentMethod(),
             address: faker.lorem.word(),
             city: faker.lorem.word(),
-            telephoneNumber: faker.phone.number(),
+            telephoneNumber: generatePhoneNumber(),
             phone: null,
             user: null
         }
@@ -122,7 +131,7 @@ describe('RentService', () => {
             paymentMethod: "Other",
             address: faker.lorem.word(),
             city: faker.lorem.word(),
-            telephoneNumber: faker.phone.number(),
+            telephoneNumber: generatePhoneNumber(),
             phone: null,
             user: null
         }
@@ -155,7 +164,7 @@ describe('RentService', () => {
         Rent.paymentMethod = getRandomPaymentMethod();
         Rent.address = faker.lorem.word();
         Rent.city = faker.lorem.word();
-        Rent.telephoneNumber = faker.phone.number();
+        Rent.telephoneNumber = generatePhoneNumber();
 
         const updatedRent: RentEntity = await service.update(Rent.id, Rent);
         expect(updatedRent).not.toBeNull();
@@ -188,7 +197,7 @@ describe('RentService', () => {
             paymentMethod: "Other",
             address: faker.lorem.word(),
             city: faker.lorem.word(),
-            telephoneNumber: faker.phone.number(),
+            telephoneNumber: generatePhoneNumber(),
             phone: null,
             user: null
         }
