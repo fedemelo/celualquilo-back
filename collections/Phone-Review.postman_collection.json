@@ -1,0 +1,938 @@
+{
+	"info": {
+		"_postman_id": "b898b024-3e72-42ad-877b-daa12662b6c9",
+		"name": "Phone-Review",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27539264"
+	},
+	"item": [
+		{
+			"name": "Add a Phone",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"IPhone 22\",\r\n    \"pricePerDay\":35000,\r\n    \"stock\":2,\r\n    \"cameraSpecs\":\" 26 mm, ƒ/1.5 aperture, sensor‑shift optical image stabilization, 100% Focus Pixels.\",\r\n    \"memorySpecs\":\"128GB\",\r\n    \"screenSpecs\":\"6.1‑inch (diagonal) all‑screen OLED display\",\r\n    \"isLastGeneration\": false,\r\n    \"isOnSale\":true,\r\n    \"image\":\"https://tiendasishop.com/media/catalog/product/i/p/iphone_14_purple_pdp_image_position-1a_laes.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/phones",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a Phone",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"IPhone 22\",\r\n    \"pricePerDay\":35000,\r\n    \"stock\":2,\r\n    \"cameraSpecs\":\" 26 mm, ƒ/1.5 aperture, sensor‑shift optical image stabilization, 100% Focus Pixels.\",\r\n    \"memorySpecs\":\"128GB\",\r\n    \"screenSpecs\":\"6.1‑inch (diagonal) all‑screen OLED display\",\r\n    \"isLastGeneration\": false,\r\n    \"isOnSale\":true,\r\n    \"image\":\"https://tiendasishop.com/media/catalog/product/i/p/iphone_14_purple_pdp_image_position-1a_laes.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/phones",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"phones"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n    \"name\":\"IPhone 22\",\r\n    \"pricePerDay\":35000,\r\n    \"stock\":2,\r\n    \"cameraSpecs\":\" 26 mm, ƒ/1.5 aperture, sensor‑shift optical image stabilization, 100% Focus Pixels.\",\r\n    \"memorySpecs\":\"128GB\",\r\n    \"screenSpecs\":\"6.1‑inch (diagonal) all‑screen OLED display\",\r\n    \"isLastGeneration\": false,\r\n    \"isOnSale\":true,\r\n    \"image\":\"https://tiendasishop.com/media/catalog/product/i/p/iphone_14_purple_pdp_image_position-1a_laes.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a review",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rating\": 4,\r\n    \"text\": \"is a great phone for anyone looking for a powerful and affordable device. It has a large, bright display, a long-lasting battery, and a fast processor\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/reviews",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"reviews"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a review",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rating\": 4,\r\n    \"text\": \"is a great phone for anyone looking for a powerful and affordable device. It has a large, bright display, a long-lasting battery, and a fast processor\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/reviews",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"reviews"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n    \"rating\": 4,\r\n    \"text\": \"is a great phone for anyone looking for a powerful and affordable device. It has a large, bright display, a long-lasting battery, and a fast processor\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a review to a Phone",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}/reviews/{{review_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}",
+						"reviews",
+						"{{review_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a review to a Phone",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/phones/{{phone_id}}/reviews/{{review_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"phones",
+								"{{phone_id}}",
+								"reviews",
+								"{{review_id}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n    \"name\":\"IPhone 22\",\r\n    \"pricePerDay\":35000,\r\n    \"stock\":2,\r\n    \"cameraSpecs\":\" 26 mm, ƒ/1.5 aperture, sensor‑shift optical image stabilization, 100% Focus Pixels.\",\r\n    \"memorySpecs\":\"128GB\",\r\n    \"screenSpecs\":\"6.1‑inch (diagonal) all‑screen OLED display\",\r\n    \"isLastGeneration\": false,\r\n    \"isOnSale\":true,\r\n    \"image\":\"https://tiendasishop.com/media/catalog/product/i/p/iphone_14_purple_pdp_image_position-1a_laes.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700\"\r\n    \"reviews\": [\r\n        {\r\n            \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n            \"rating\": 4,\r\n            \"text\": \"is a great phone for anyone looking for a powerful and affordable device. It has a large, bright display, a long-lasting battery, and a fast processor\"\r\n        },\r\n    ],\r\n    \"favourites\": [],\r\n    \"rents\": []\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Add an invalid review to a Phone",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}/reviews/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}",
+						"reviews",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add an invalid review to a Phone",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/phones/{{phone_id}}/reviews/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"phones",
+								"{{phone_id}}",
+								"reviews",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The review with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a review to a invalid Phone",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/phones/00000000-0000-0000-0000-000000000000/reviews/{{review_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"00000000-0000-0000-0000-000000000000",
+						"reviews",
+						"{{review_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a review to a invalid Phone",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/phones/00000000-0000-0000-0000-000000000000/reviews/{{review_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"phones",
+								"00000000-0000-0000-0000-000000000000",
+								"reviews",
+								"{{review_id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The phone with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a review of a Phone",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}/reviews/{{review_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}",
+						"reviews",
+						"{{review_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get a review of a Phone",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/phones/{{phone_id}}/reviews/{{review_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"phones",
+								"{{phone_id}}",
+								"reviews",
+								"{{review_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n    \"rating\": 4,\r\n    \"text\": \"is a great phone for anyone looking for a powerful and affordable device. It has a large, bright display, a long-lasting battery, and a fast processor\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Get an invalid review of a Phone",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}/reviews/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}",
+						"reviews",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get an invalid review of a Phone",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/phones/{{phone_id}}/reviews/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"phones",
+								"{{phone_id}}",
+								"reviews",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The review with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a review of an invalid Phone",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/phones/00000000-0000-0000-0000-000000000000/reviews/{{review_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"00000000-0000-0000-0000-000000000000",
+						"reviews",
+						"{{review_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a review of an invalid Phone",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/phones/00000000-0000-0000-0000-000000000000/reviews/{{review_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"phones",
+								"00000000-0000-0000-0000-000000000000",
+								"reviews",
+								"{{review_id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The phone with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a non-associated review of a Phone",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}/reviews/{{review_id_2}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}",
+						"reviews",
+						"{{review_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get a non-associated review of a Phone",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/phones/{{phone_id}}/reviews/{{review_id_2}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"phones",
+								"{{phone_id}}",
+								"reviews",
+								"{{review_id_2}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 412,\r\n   \"message\": \"The review with the given id is not associated to the user\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Get reviews of a Phone",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}/reviews/",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}",
+						"reviews",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get reviews of a Phone",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/phones/{{phone_id}}/reviews/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"phones",
+								"{{phone_id}}",
+								"reviews",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "[\r\n    {\r\n        \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n        \"rating\": 4,\r\n        \"text\": \"is a great phone for anyone looking for a powerful and affordable device. It has a large, bright display, a long-lasting battery, and a fast processor\"\r\n    }\r\n]"
+				}
+			]
+		},
+		{
+			"name": "Get reviews of an invalid Phone",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/phones/00000000-0000-0000-0000-000000000000/reviews/",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"00000000-0000-0000-0000-000000000000",
+						"reviews",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get reviews of an invalid Phone",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/users/00000000-0000-0000-0000-000000000000/reviews/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"00000000-0000-0000-0000-000000000000",
+								"reviews",
+								""
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The phone with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Update reviews of a phone",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n       \"id\": \"{{review_id_2}}\"\r\n   }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}/reviews/",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}",
+						"reviews",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update reviews of a phone",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n   {\r\n       \"id\": \"{{review_id_2}}\"\r\n   }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/phones/{{phone_id}}/reviews/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"phones",
+								"{{phone_id}}",
+								"reviews",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n    \"name\":\"IPhone 22\",\r\n    \"pricePerDay\":35000,\r\n    \"stock\":2,\r\n    \"cameraSpecs\":\" 26 mm, ƒ/1.5 aperture, sensor‑shift optical image stabilization, 100% Focus Pixels.\",\r\n    \"memorySpecs\":\"128GB\",\r\n    \"screenSpecs\":\"6.1‑inch (diagonal) all‑screen OLED display\",\r\n    \"isLastGeneration\": false,\r\n    \"isOnSale\":true,\r\n    \"image\":\"https://tiendasishop.com/media/catalog/product/i/p/iphone_14_purple_pdp_image_position-1a_laes.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700\"\r\n    \"reviews\": [\r\n        {\r\n            \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n            \"rating\": 4,\r\n            \"text\": \"is a great phone for anyone looking for a powerful and affordable device. It has a large, bright display, a long-lasting battery, and a fast processor\"\r\n        },\r\n    ],\r\n    \"favourites\": [],\r\n    \"rents\": []\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Update invalid review of a phone ",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n       \"id\": \"00000000-0000-0000-0000-000000000000\"\r\n   }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}/reviews/",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}",
+						"reviews",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update invalid review of a phone",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n   {\r\n       \"id\": \"00000000-0000-0000-0000-000000000000\"\r\n   }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/phones/{{phone_id}}/reviews/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"phones",
+								"{{phone_id}}",
+								"reviews",
+								""
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The review with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Update reviews of an invalid phone ",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n       \"id\": \"{{review_id_2}}\"\r\n   }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/phones/00000000-0000-0000-0000-000000000000/reviews/",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"00000000-0000-0000-0000-000000000000",
+						"reviews",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update reviews of an invalid phone",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n   {\r\n       \"id\": \"{{review_id_2}}\"\r\n   }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/phones/00000000-0000-0000-0000-000000000000/reviews/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"phones",
+								"00000000-0000-0000-0000-000000000000",
+								"reviews",
+								""
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The phone with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a review from a Phone",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}/reviews/{{review_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}",
+						"reviews",
+						"{{review_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete a review from a Phone",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/phones/{{phone_id}}/reviews/{{review_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"phones",
+								"{{phone_id}}",
+								"reviews",
+								"{{review_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Delete an invalid review to a Phone",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}/reviews/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}",
+						"reviews",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete an invalid review to a Phone",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/phones/{{phone_id}}/reviews/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"phones",
+								"{{phone_id}}",
+								"reviews",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The review with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a review to a invalid Phone",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/phones/00000000-0000-0000-0000-000000000000/reviews/{{review_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"00000000-0000-0000-0000-000000000000",
+						"reviews",
+						"{{review_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete a review to a invalid Phone",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/phones/00000000-0000-0000-0000-000000000000/reviews/{{review_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"phones",
+								"00000000-0000-0000-0000-000000000000",
+								"reviews",
+								"{{review_id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The phone with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a non-associated review of a Phone",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}/reviews/{{review_id_2}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}",
+						"reviews",
+						"{{review_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete a non-associated review of a Phone",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/phones/{{phone_id}}/reviews/{{review_id_2}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"phones",
+								"{{phone_id}}",
+								"reviews",
+								"{{review_id_2}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 412,\r\n   \"message\": \"The review with the given id is not associated to the user\"\r\n}"
+				}
+			]
+		}
+	]
+}
