@@ -30,13 +30,13 @@ describe('PhoneService', () => {
       const phone: PhoneEntity = await repository.save({
         name: faker.lorem.word(),
         pricePerDay: faker.commerce.price(),
-        stock: faker.datatype.number(),
+        stock: faker.number.int(),
         cameraSpecs: faker.lorem.sentence(),
         memorySpecs: faker.lorem.sentence(),
         screenSpecs: faker.lorem.sentence(),
         isLastGeneration: faker.datatype.boolean(),
         isOnSale: faker.datatype.boolean(),
-        image: faker.image.imageUrl(),      
+        image: faker.image.url(),      
     })
     phonesList.push(phone);
   }
@@ -76,13 +76,13 @@ describe('PhoneService', () => {
       id: "",
       name: faker.lorem.word(),
       pricePerDay: faker.commerce.price(),
-      stock: faker.datatype.number(),
+      stock: faker.number.int(),
       cameraSpecs: faker.lorem.sentence(),
       memorySpecs: faker.lorem.sentence(),
       screenSpecs: faker.lorem.sentence(),
       isLastGeneration: faker.datatype.boolean(),
       isOnSale: faker.datatype.boolean(),
-      image: faker.image.imageUrl(),
+      image: faker.image.url(),
       rents: [],
       reviews: [],
       brand: null,
