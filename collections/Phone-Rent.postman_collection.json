@@ -2,13 +2,27 @@
 	"info": {
 		"_postman_id": "e6057ba5-3645-4b56-9529-41bb26d787cd",
 		"name": "Phone-Rent",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "30845515",
-		"_collection_link": "https://crimson-resonance-699820.postman.co/workspace/Team-Workspace~40cc1ce4-a435-4edb-80f2-98b1c018dc0f/collection/30845479-e6057ba5-3645-4b56-9529-41bb26d787cd?action=share&source=collection_link&creator=30845515"
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "30845539",
+		"_collection_link": "https://crimson-resonance-699820.postman.co/workspace/Team-Workspace~40cc1ce4-a435-4edb-80f2-98b1c018dc0f/collection/30845479-e6057ba5-3645-4b56-9529-41bb26d787cd?action=share&source=collection_link&creator=30845539"
 	},
 	"item": [
 		{
 			"name": "Add Rent of a Phone",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -21,23 +35,30 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "{{baseURL}}/phones/{{phone_id}}/rents/{{rent_id}}",
-					"host": [
-						"{{baseURL}}"
-					],
-					"path": [
-						"phones",
-						"{{phone_id}}",
-						"rents",
-						"{{rent_id}}"
-					]
-				}
+				"url": "{{baseURL}}/phones/{{phone_id}}/rents/{{rent_id}}"
 			},
 			"response": []
 		},
 		{
 			"name": "Add invalid Rent of a Phone",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The rent with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -50,180 +71,163 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "{{baseURL}}/phones/{{phone_id}}/rents/00000000-0000-0000-0000-000000000000",
-					"host": [
-						"{{baseURL}}"
-					],
-					"path": [
-						"phones",
-						"{{phone_id}}",
-						"rents",
-						"00000000-0000-0000-0000-000000000000"
-					]
-				}
+				"url": "{{baseURL}}/phones/{{phone_id}}/rents/00000000-0000-0000-0000-000000000000"
 			},
 			"response": []
 		},
 		{
 			"name": "Get Rents of a Phone",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "{{baseURL}}/phones/{{phone_id}}/rents",
-					"host": [
-						"{{baseURL}}"
-					],
-					"path": [
-						"phones",
-						"{{phone_id}}",
-						"rents"
-					]
-				}
+				"url": "{{baseURL}}/phones/{{phone_id}}/rents"
 			},
 			"response": []
 		},
 		{
 			"name": "Get a Rent of a Phone",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "{{baseURL}}/phones/{{phone_id}}/rents/{{rent_id}}",
-					"host": [
-						"{{baseURL}}"
-					],
-					"path": [
-						"phones",
-						"{{phone_id}}",
-						"rents",
-						"{{rent_id}}"
-					]
-				}
+				"url": "{{baseURL}}/phones/{{phone_id}}/rents/{{rent_id}}"
 			},
 			"response": []
 		},
 		{
 			"name": "Get an invalid Rent of a Phone",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The rent with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "{{baseURL}}/phones/{{phone_id}}/rents/00000000-0000-0000-0000-000000000000",
-					"host": [
-						"{{baseURL}}"
-					],
-					"path": [
-						"phones",
-						"{{phone_id}}",
-						"rents",
-						"00000000-0000-0000-0000-000000000000"
-					]
-				}
+				"url": "{{baseURL}}/phones/{{phone_id}}/rents/00000000-0000-0000-0000-000000000000"
 			},
 			"response": []
 		},
 		{
-			"name": "Get a non-associated Request of a Phone",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{baseURL}}/phones/{{phone_id}}/rents/{{rent_id_2}}",
-					"host": [
-						"{{baseURL}}"
-					],
-					"path": [
-						"phones",
-						"{{phone_id}}",
-						"rents",
-						"{{rent_id_2}}"
-					]
+			"name": "Update Rents of a Phone",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "Update Rent of a Phone",
+			],
 			"request": {
 				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": \"48a9ab90-1276-11ed-861d-02423ad3243\",\r\n    \"isActive\": true,\r\n    \"startDate\":  \"2023-10-31T01:30:00.000-05:00\",\r\n    \"endDate\":  \"2023-11-26T01:30:00.000-05:00\",\r\n    \"paymentMethod\": \"cash\",\r\n    \"address\": \"Calle 136#48c-21\",\r\n    \"city\": \"Bogotá\",\r\n    \"telephoneNumber\": 3236277382\r\n}",
+					"raw": "[\r\n    {\r\n    \"id\": \"{{rent_id}}\",\r\n    \"isActive\": true,\r\n    \"startDate\":  \"2023-10-31T01:30:00.000-05:00\",\r\n    \"endDate\":  \"2023-11-26T01:30:00.000-05:00\",\r\n    \"paymentMethod\": \"cash\",\r\n    \"address\": \"Calle 136#48c-21\",\r\n    \"city\": \"Bogotá\",\r\n    \"telephoneNumber\": 3236277382\r\n    }\r\n]",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
-				"url": {
-					"raw": "{{baseURL}}/phones/{{phone_id}}/rents/{{rent_id}}",
-					"host": [
-						"{{baseURL}}"
-					],
-					"path": [
-						"phones",
-						"{{phone_id}}",
-						"rents",
-						"{{rent_id}}"
-					]
-				}
+				"url": "{{baseURL}}/phones/{{phone_id}}/rents"
 			},
 			"response": []
 		},
 		{
-			"name": "Update a non-associated Request from a Phone",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"url": {
-					"raw": "{{baseURL}}/phones/{{phone_id}}/rents/{{rent_id_2}}",
-					"host": [
-						"{{baseURL}}"
-					],
-					"path": [
-						"phones",
-						"{{phone_id}}",
-						"rents",
-						"{{rent_id_2}}"
-					]
+			"name": "Update invalid Rents of a Phone",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The rent with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "Update invalid Rent of a Phone",
+			],
 			"request": {
 				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": \"48a9ab90-1276-11ed-861d-02423ad3243\",\r\n    \"isActive\": true,\r\n    \"startDate\":  \"2023-10-31T01:30:00.000-05:00\",\r\n    \"endDate\":  \"2023-11-26T01:30:00.000-05:00\",\r\n    \"paymentMethod\": \"cash\",\r\n    \"address\": \"Calle 136#48c-21\",\r\n    \"city\": \"Bogotá\",\r\n    \"telephoneNumber\": 3236277382\r\n    }",
+					"raw": "[\r\n    {\r\n        \"id\": \"00000000-0000-0000-0000-000000000000\",\r\n        \"isActive\": true,\r\n        \"startDate\":  \"2023-10-31T01:30:00.000-05:00\",\r\n        \"endDate\":  \"2023-11-26T01:30:00.000-05:00\",\r\n        \"paymentMethod\": \"cash\",\r\n        \"address\": \"Calle 136#48c-21\",\r\n        \"city\": \"Bogotá\",\r\n        \"telephoneNumber\": 3236277382\r\n    }\r\n]",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
-				"url": {
-					"raw": "{{baseURL}}/phones/{{phone_id}}/rents/00000000-0000-0000-0000-000000000000",
-					"host": [
-						"{{baseURL}}"
-					],
-					"path": [
-						"phones",
-						"{{phone_id}}",
-						"rents",
-						"00000000-0000-0000-0000-000000000000"
-					]
-				}
+				"url": "{{baseURL}}/phones/{{phone_id}}/rents"
 			},
 			"response": []
 		},
 		{
 			"name": "Delete Rent of a Phone",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -236,23 +240,30 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "{{baseURL}}/phones/{{phone_id}}/rents/{{rent_id}}",
-					"host": [
-						"{{baseURL}}"
-					],
-					"path": [
-						"phones",
-						"{{phone_id}}",
-						"rents",
-						"{{rent_id}}"
-					]
-				}
+				"url": "{{baseURL}}/phones/{{phone_id}}/rents/{{rent_id}}"
 			},
 			"response": []
 		},
 		{
 			"name": "Delete invalid Rent of a Phone",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The rent with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -265,18 +276,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "{{baseURL}}/phones/{{phone_id}}/rents/00000000-0000-0000-0000-000000000000",
-					"host": [
-						"{{baseURL}}"
-					],
-					"path": [
-						"phones",
-						"{{phone_id}}",
-						"rents",
-						"00000000-0000-0000-0000-000000000000"
-					]
-				}
+				"url": "{{baseURL}}/phones/{{phone_id}}/rents/00000000-0000-0000-0000-000000000000"
 			},
 			"response": []
 		}
