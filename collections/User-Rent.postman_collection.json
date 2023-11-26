@@ -3,12 +3,12 @@
 		"_postman_id": "b6f4088a-db40-483d-8f15-f916701e4ff1",
 		"name": "User-Rent",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "30845515",
-		"_collection_link": "https://crimson-resonance-699820.postman.co/workspace/Team-Workspace~40cc1ce4-a435-4edb-80f2-98b1c018dc0f/collection/30845479-b6f4088a-db40-483d-8f15-f916701e4ff1?action=share&source=collection_link&creator=30845515"
+		"_exporter_id": "30845479",
+		"_collection_link": "https://crimson-resonance-699820.postman.co/workspace/Team-Workspace~40cc1ce4-a435-4edb-80f2-98b1c018dc0f/collection/30845479-b6f4088a-db40-483d-8f15-f916701e4ff1?action=share&source=collection_link&creator=30845479"
 	},
 	"item": [
 		{
-			"name": "Add an Rent",
+			"name": "Add a rent",
 			"event": [
 				{
 					"listen": "test",
@@ -30,7 +30,89 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\":\"Pepito Pérez\",\n    \"email\": \"p.perez@gmail.com\",\n    \"password\": \"Pepitoelmejor1234$$\"\n}",
+					"raw": "{\n    \"isActive\": true,\n    \"startDate\": \"2023-11-11T00:00:00.000Z\",\n    \"endDate\": \"2023-12-11T00:00:00.000Z\",\n    \"paymentMethod\": \"Credit card\",\n    \"address\": \"Musterstraße 123\",\n    \"city\": \"Berlin\",\n    \"telephoneNumber\": \"+491234567890\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/rents",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"rents"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add an Rent",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Pepito Pérez\",\n    \"email\": \"p.perez@gmail.com\",\n    \"password\": \"pepitoelmejor1234$$\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/rents",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"rents"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\":\"48a9ab90-1276-11ed-861d-0242ac120005\",\n    \"name\": \"Pepito Pérez\",\n    \"email\": \"p.perez@gmail.com\",\n    \"password\": \"pepitoelmejor1234$$\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a rent 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"rent_id_2\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"isActive\": true,\n    \"startDate\": \"2023-11-11T00:00:00.000Z\",\n    \"endDate\": \"2023-12-11T00:00:00.000Z\",\n    \"paymentMethod\": \"Credit card\",\n    \"address\": \"Musterstraße 123\",\n    \"city\": \"Berlin\",\n    \"telephoneNumber\": \"+491234567890\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -173,6 +255,20 @@
 		},
 		{
 			"name": "Add a Rent to an User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -227,6 +323,24 @@
 		},
 		{
 			"name": "Add an invalid Rent to an User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The rent with the given id was not found\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -281,6 +395,24 @@
 		},
 		{
 			"name": "Add a Rent to an invalid User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The user with the given id was not found\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -335,6 +467,19 @@
 		},
 		{
 			"name": "Get a Rent of an User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -389,6 +534,24 @@
 		},
 		{
 			"name": "Get an invalid Rent of an User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The rent with the given id was not found\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -443,6 +606,24 @@
 		},
 		{
 			"name": "Get a Rent of an invalid User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The user with the given id was not found\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -497,6 +678,24 @@
 		},
 		{
 			"name": "Get a non-associated Rent of an User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {",
+							"   pm.response.to.have.status(412);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The rent with the given id is not associated to the user\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -551,6 +750,19 @@
 		},
 		{
 			"name": "Get Rents of an User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -603,6 +815,24 @@
 		},
 		{
 			"name": "Get Rents of an invalid User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The user with the given id was not found\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -656,12 +886,25 @@
 		},
 		{
 			"name": "Update Rents of a User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "[\n    {\n    \"id\": \"48a9ab90-1276-11ed-861d-02423ad3243\",\n    \"isActive\": true,\n    \"startDate\":  \"2023-10-31T01:30:00.000-05:00\",\n    \"endDate\":  \"2023-11-26T01:30:00.000-05:00\",\n    \"paymentMethod\": \"cash\",\n    \"address\": \"Calle 136#48c-21\",\n    \"city\": \"Bogotá\",\n    \"telephoneNumber\": 3236277382\n    }, \n    {\n    \"id\": \"48423dab0-1276-43ed-8423d-0567898765\",\n    \"isActive\": false,\n    \"startDate\":  \"2023-10-02T01:30:00.000-05:00\",\n    \"endDate\":  \"2023-10-12T01:30:00.000-05:00\",\n    \"paymentMethod\": \"cash\",\n    \"address\": \"Calle 136#48c-21\",\n    \"city\": \"Bogotá\",\n    \"telephoneNumber\": 3236277382\n    }\n]",
+					"raw": "[\n        {\n    \"id\": \"{{rent_id_2}}\"\n    }\n]",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -726,12 +969,30 @@
 		},
 		{
 			"name": "Update invalid Rents of a User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The rent with the given id was not found\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "[\n    {\n    \"id\":{{rent_id_3}}\n    }\n]",
+					"raw": "[\n    {\n    \"id\": \"00000000-0000-0000-0000-000000000000\"\n    }\n]",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -794,19 +1055,45 @@
 		},
 		{
 			"name": "Update a Rent of an invalid User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The user with the given id was not found\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "PUT",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n        {\n    \"id\": \"{{rent_id_2}}\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "{{baseURL}}/users/00000000-0000-0000-0000-000000000000/rents/{{rent_id}}",
+					"raw": "{{baseURL}}/users/00000000-0000-0000-0000-000000000000/rents",
 					"host": [
 						"{{baseURL}}"
 					],
 					"path": [
 						"users",
 						"00000000-0000-0000-0000-000000000000",
-						"rents",
-						"{{rent_id}}"
+						"rents"
 					]
 				}
 			},
@@ -846,11 +1133,24 @@
 		},
 		{
 			"name": "Delete a Rent from an User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"   pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{baseURL}}/users/{{user_id}}/rents/{{rent_id}}",
+					"raw": "{{baseURL}}/users/{{user_id}}/rents/{{rent_id_2}}",
 					"host": [
 						"{{baseURL}}"
 					],
@@ -858,7 +1158,7 @@
 						"users",
 						"{{user_id}}",
 						"rents",
-						"{{rent_id}}"
+						"{{rent_id_2}}"
 					]
 				}
 			},
@@ -892,11 +1192,29 @@
 		},
 		{
 			"name": "Delete a Rent from an invalid User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The user with the given id was not found\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{baseURL}}/users/00000000-0000-0000-0000-000000000000/rents/{{rent_id}}",
+					"raw": "{{baseURL}}/users/00000000-0000-0000-0000-000000000000/rents/{{rent_id_2}}",
 					"host": [
 						"{{baseURL}}"
 					],
@@ -904,7 +1222,7 @@
 						"users",
 						"00000000-0000-0000-0000-000000000000",
 						"rents",
-						"{{rent_id}}"
+						"{{rent_id_2}}"
 					]
 				}
 			},
@@ -946,6 +1264,24 @@
 		},
 		{
 			"name": "Delete an invalid Rent from an User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The rent with the given id was not found\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -1000,11 +1336,29 @@
 		},
 		{
 			"name": "Delete a non-associated Rent of an User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {",
+							"   pm.response.to.have.status(412);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The rent with the given id is not associated to the user\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{baseURL}}/users/{{user_id}}/rents/{{rent_id2}}",
+					"raw": "{{baseURL}}/users/{{user_id}}/rents/{{rent_id}}",
 					"host": [
 						"{{baseURL}}"
 					],
@@ -1012,7 +1366,7 @@
 						"users",
 						"{{user_id}}",
 						"rents",
-						"{{rent_id2}}"
+						"{{rent_id}}"
 					]
 				}
 			},
@@ -1049,6 +1403,171 @@
 					],
 					"cookie": [],
 					"body": "{\n    \"statusCode\": 412,\n    \"message\": \"The rent with the given id is not associated to the user\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete an User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"   pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/users/{{user_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete an User",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/users/{{user_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete an Rent 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"   pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/rents/{{rent_id_2}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"rents",
+						"{{rent_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete an Rent",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/rents/{{rent_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"rents",
+								"{{rent_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Delete an Rent",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"   pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/rents/{{rent_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"rents",
+						"{{rent_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete an Rent",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/rents/{{rent_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"rents",
+								"{{rent_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
 				}
 			]
 		}
