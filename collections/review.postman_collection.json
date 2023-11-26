@@ -1,9 +1,10 @@
 {
 	"info": {
-		"_postman_id": "ae496308-d87d-4c0d-b20a-d122c666161d",
-		"name": "review",
+		"_postman_id": "16795785-324b-4d53-83b4-48dbbe99e98f",
+		"name": "Review",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "27539264"
+		"_exporter_id": "30845479",
+		"_collection_link": "https://crimson-resonance-699820.postman.co/workspace/Team-Workspace~40cc1ce4-a435-4edb-80f2-98b1c018dc0f/collection/30845479-16795785-324b-4d53-83b4-48dbbe99e98f?action=share&source=collection_link&creator=30845479"
 	},
 	"item": [
 		{
@@ -73,8 +74,8 @@
 					},
 					"status": "Created",
 					"code": 201,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
 					"body": "{\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n    \"rating\": 4,\r\n    \"text\": \"is a great phone for anyone looking for a powerful and affordable device. It has a large, bright display, a long-lasting battery, and a fast processor\"\r\n}"
 				}
@@ -132,8 +133,8 @@
 					},
 					"status": "OK",
 					"code": 200,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
 					"body": "{\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n    \"rating\": 4,\r\n    \"text\": \"is a great phone for anyone looking for a powerful and affordable device. It has a large, bright display, a long-lasting battery, and a fast processor\"\r\n    \"phone\": \r\n    {\r\n        \"name\":\"IPhone 22\",\r\n        \"pricePerDay\":35000,\r\n        \"stock\":2,\r\n        \"cameraSpecs\":\" 26 mm, ƒ/1.5 aperture, sensor‑shift optical image stabilization, 100% Focus Pixels.\",\r\n        \"memorySpecs\":\"128GB\",\r\n        \"screenSpecs\":\"6.1‑inch (diagonal) all‑screen OLED display\",\r\n        \"isLastGeneration\": false,\r\n        \"isOnSale\":true,\r\n        \"image\":\"https://tiendasishop.com/media/catalog/product/i/p/iphone_14_purple_pdp_image_position-1a_laes.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700\"\r\n    }\r\n    \"user\": \r\n    {\r\n        \"name\":\"Pepito Pérez\",\r\n        \"email\": \"p.perez@gmail.com\",\r\n        \"password\": \"Pepitoelmejor1234$$\"\r\n    }\r\n}"
 				}
@@ -187,8 +188,8 @@
 					},
 					"status": "OK",
 					"code": 200,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
 					"body": "{\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n    \"rating\": 4,\r\n    \"text\": \"is a great phone for anyone looking for a powerful and affordable device. It has a large, bright display, a long-lasting battery, and a fast processor\"\r\n    \"phone\": \r\n    {\r\n        \"name\":\"IPhone 22\",\r\n        \"pricePerDay\":35000,\r\n        \"stock\":2,\r\n        \"cameraSpecs\":\" 26 mm, ƒ/1.5 aperture, sensor‑shift optical image stabilization, 100% Focus Pixels.\",\r\n        \"memorySpecs\":\"128GB\",\r\n        \"screenSpecs\":\"6.1‑inch (diagonal) all‑screen OLED display\",\r\n        \"isLastGeneration\": false,\r\n        \"isOnSale\":true,\r\n        \"image\":\"https://tiendasishop.com/media/catalog/product/i/p/iphone_14_purple_pdp_image_position-1a_laes.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700\"\r\n    }\r\n    \"user\": \r\n    {\r\n        \"name\":\"Pepito Pérez\",\r\n        \"email\": \"p.perez@gmail.com\",\r\n        \"password\": \"Pepitoelmejor1234$$\"\r\n    }\r\n}"
 				}
@@ -247,8 +248,8 @@
 					},
 					"status": "Not Found",
 					"code": 404,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
 					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The review with the given id was not found\"\r\n}"
 				}
@@ -320,8 +321,8 @@
 					},
 					"status": "OK",
 					"code": 200,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
 					"body": "{\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n    \"rating\": 5,\r\n    \"text\": \"is a great phone for anyone looking for a powerful and affordable device. It has a large, bright display, a long-lasting battery, and a fast processor\"\r\n}"
 				}
@@ -398,8 +399,8 @@
 					},
 					"status": "Not Found",
 					"code": 404,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
 					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The review with the given id was not found\"\r\n}"
 				}
@@ -453,10 +454,10 @@
 					},
 					"status": "No Content",
 					"code": 204,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -513,8 +514,8 @@
 					},
 					"status": "Not Found",
 					"code": 404,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
 					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The review with the given id was not found\"\r\n}"
 				}
