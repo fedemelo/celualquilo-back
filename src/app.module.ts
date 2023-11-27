@@ -16,6 +16,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserRentModule } from './user-rent/user-rent.module';
 import { PhoneRentModule } from './phone-rent/phone-rent.module';
 import { PhoneReviewModule } from './phone-review/phone-review.module';
+import { UserAuthModule } from './user-auth/user-auth.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [PhoneModule, BrandModule, RentModule, ReviewModule, UserModule,
@@ -34,6 +36,8 @@ import { PhoneReviewModule } from './phone-review/phone-review.module';
   UserRentModule,
   PhoneRentModule,
   PhoneReviewModule,
+  UserAuthModule,
+  AuthModule,
 ],
   controllers: [AppController],
   providers: [AppService],

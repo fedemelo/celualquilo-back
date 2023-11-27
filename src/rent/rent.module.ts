@@ -5,12 +5,13 @@ import { RentService } from './rent.service';
 
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { RentEntity } from './rent.entity';
-import { PhoneEntity } from 'src/phone/phone.entity';
-import { UserEntity } from 'src/user/user.entity';
+import { PhoneEntity } from '../phone/phone.entity';
+import { UserEntity } from '../user/user.entity';
+import { RoleGuard } from 'src/user-auth/role.guard';
 
 @Module({
     imports: [TypeOrmModule.forFeature([RentEntity, PhoneEntity, UserEntity])],
     controllers: [RentController],
-    providers: [RentService],
+    providers: [RentService, RoleGuard],
 })
 export class RentModule { }
