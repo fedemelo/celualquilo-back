@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "04524806-b57c-4c63-aa37-d887c74db465",
+		"_postman_id": "23154da7-9f1e-43bd-a6a3-d6b2d1ecea3e",
 		"name": "Brand",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "30845515",
-		"_collection_link": "https://crimson-resonance-699820.postman.co/workspace/Team-Workspace~40cc1ce4-a435-4edb-80f2-98b1c018dc0f/collection/30845515-04524806-b57c-4c63-aa37-d887c74db465?action=share&source=collection_link&creator=30845515"
+		"_collection_link": "https://crimson-resonance-699820.postman.co/workspace/Team-Workspace~40cc1ce4-a435-4edb-80f2-98b1c018dc0f/collection/30845515-23154da7-9f1e-43bd-a6a3-d6b2d1ecea3e?action=share&source=collection_link&creator=30845515"
 	},
 	"item": [
 		{
@@ -55,7 +55,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Credit Suisse\",\r\n    \"description\": \"Credit Suisse has a long and distinguished tradition of supporting the arts, working with leading cultural institutions to encourage innovative projects and wider access to theatre, music, and the visual arts.\",\r\n    \"website\": \"https://www.credit-suisse.com\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Apple\",\r\n    \"image\": \"https://www.svgrepo.com/show/69341/apple-logo.svg\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -63,13 +63,11 @@
 							}
 						},
 						"url": {
-							"raw": "{{protocol}}://{{host}}/api/brands",
-							"protocol": "{{protocol}}",
+							"raw": "{{baseURL}}/brands",
 							"host": [
-								"{{host}}"
+								"{{baseURL}}"
 							],
 							"path": [
-								"api",
 								"brands"
 							]
 						}
@@ -112,7 +110,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"name\": \"Credit Suisse\",\n    \"description\": \"Credit Suisse has a long and distinguished tradition of supporting the arts, working with leading cultural institutions to encourage innovative projects and wider access to theatre, music, and the visual arts.\",\n    \"website\": \"https://www.credit-suisse.com\",\n    \"id\": 33\n}"
+					"body": "{\n    \"name\": \"Apple\",\n    \"image\": \"https://www.svgrepo.com/show/69341/apple-logo.svg\",\n    \"id\": \"dc3b157a-3ca4-4427-88c7-8a6a96b7094f\"\n}"
 				}
 			]
 		},
@@ -161,7 +159,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Credit Suisse\",\r\n    \"description\": \"Credit Suisse has a long and distinguished tradition of supporting the arts, working with leading cultural institutions to encourage innovative projects and wider access to theatre, music, and the visual arts.\",\r\n    \"website\": \"https://www.credit-suisse.com\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Apple\",\r\n    \"image\": \"bad apple logo url\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -169,13 +167,11 @@
 							}
 						},
 						"url": {
-							"raw": "{{protocol}}://{{host}}/api/brands",
-							"protocol": "{{protocol}}",
+							"raw": "{{baseURL}}/brands",
 							"host": [
-								"{{host}}"
+								"{{baseURL}}"
 							],
 							"path": [
-								"api",
 								"brands"
 							]
 						}
@@ -262,13 +258,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{protocol}}://{{host}}/api/brands",
-							"protocol": "{{protocol}}",
+							"raw": "{{baseURL}}/brands",
 							"host": [
-								"{{host}}"
+								"{{baseURL}}"
 							],
 							"path": [
-								"api",
 								"brands"
 							]
 						}
@@ -311,7 +305,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "[\n    {\n        \"id\": 33,\n        \"name\": \"Credit Suisse\",\n        \"description\": \"Credit Suisse has a long and distinguished tradition of supporting the arts, working with leading cultural institutions to encourage innovative projects and wider access to theatre, music, and the visual arts.\",\n        \"website\": \"https://www.credit-suisse.com\",\n        \"phone\": null\n    }\n]"
+					"body": "[\n    {\n        \"id\": \"dc3b157a-3ca4-4427-88c7-8a6a96b7094f\",\n        \"name\": \"Apple\",\n        \"image\": \"https://www.svgrepo.com/show/69341/apple-logo.svg\",\n        \"phone\": null\n    }\n]"
 				}
 			]
 		},
@@ -352,13 +346,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{protocol}}://{{host}}/api/brands/{{brand_id}}",
-							"protocol": "{{protocol}}",
+							"raw": "{{baseURL}}/brands/{{brand_id}}",
 							"host": [
-								"{{host}}"
+								"{{baseURL}}"
 							],
 							"path": [
-								"api",
 								"brands",
 								"{{brand_id}}"
 							]
@@ -402,7 +394,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"id\": 33,\n    \"name\": \"Credit Suisse\",\n    \"description\": \"Credit Suisse has a long and distinguished tradition of supporting the arts, working with leading cultural institutions to encourage innovative projects and wider access to theatre, music, and the visual arts.\",\n    \"website\": \"https://www.credit-suisse.com\",\n    \"phone\": null\n}"
+					"body": "{\n    \"id\": \"dc3b157a-3ca4-4427-88c7-8a6a96b7094f\",\n    \"name\": \"Apple\",\n    \"image\": \"https://www.svgrepo.com/show/69341/apple-logo.svg\",\n    \"phone\": null\n}"
 				}
 			]
 		},
@@ -447,15 +439,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{protocol}}://{{host}}/api/brands/0",
-							"protocol": "{{protocol}}",
+							"raw": "{{baseURL}}/brands/00000000-0000-0000-0000-000000000000",
 							"host": [
-								"{{host}}"
+								"{{baseURL}}"
 							],
 							"path": [
-								"api",
 								"brands",
-								"0"
+								"00000000-0000-0000-0000-000000000000"
 							]
 						}
 					},
@@ -547,7 +537,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Credit Suisse\",\r\n    \"description\": \"Credit Suisse has a long and distinguished tradition of supporting the arts, working with leading cultural institutions to encourage innovative projects and wider access to theatre, music, and the visual arts.\",\r\n    \"website\": \"https://www.credit-suisse.com\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Samsung\",\r\n    \"image\": \"<samsung_logo_url>\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -555,13 +545,11 @@
 							}
 						},
 						"url": {
-							"raw": "{{protocol}}://{{host}}/api/brands/{{brand_id}}",
-							"protocol": "{{protocol}}",
+							"raw": "{{baseURL}}/brands/{{brand_id}}",
 							"host": [
-								"{{host}}"
+								"{{baseURL}}"
 							],
 							"path": [
-								"api",
 								"brands",
 								"{{brand_id}}"
 							]
@@ -605,7 +593,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"id\": 33,\n    \"name\": \"Credit Suisse\",\n    \"description\": \"Credit Suisse has a long and distinguished tradition of supporting the arts, working with leading cultural institutions to encourage innovative projects and wider access to theatre, music, and the visual arts.\",\n    \"website\": \"https://www.credit-suisse.com\"\n}"
+					"body": "{\n    \"id\": \"dc3b157a-3ca4-4427-88c7-8a6a96b7094f\",\n    \"name\": \"Samsung\",\n    \"image\": \"<samsung_logo_url>\"\n}"
 				}
 			]
 		},
@@ -655,7 +643,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Credit Suisse\",\r\n    \"description\": \"Credit Suisse has a long and distinguished tradition of supporting the arts, working with leading cultural institutions to encourage innovative projects and wider access to theatre, music, and the visual arts.\",\r\n    \"website\": \"https://www.credit-suisse.com\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Samsung\",\r\n    \"image\": \"<samsung_logo_url>\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -663,13 +651,11 @@
 							}
 						},
 						"url": {
-							"raw": "{{protocol}}://{{host}}/api/brands/{{brand_id}}",
-							"protocol": "{{protocol}}",
+							"raw": "{{baseURL}}/brands/{{brand_id}}",
 							"host": [
-								"{{host}}"
+								"{{baseURL}}"
 							],
 							"path": [
-								"api",
 								"brands",
 								"{{brand_id}}"
 							]
@@ -713,7 +699,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"id\": 33,\n    \"name\": \"Credit Suisse\",\n    \"description\": \"Credit Suisse has a long and distinguished tradition of supporting the arts, working with leading cultural institutions to encourage innovative projects and wider access to theatre, music, and the visual arts.\",\n    \"website\": \"https://www.credit-suisse.com\"\n}"
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The brand with the given id was not found\"\n}"
 				}
 			]
 		},
@@ -768,7 +754,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Credit Suisse\",\r\n    \"description\": \"Credit Suisse has a long and distinguished tradition of supporting the arts, working with leading cultural institutions to encourage innovative projects and wider access to theatre, music, and the visual arts.\",\r\n    \"website\": \"https://www.credit-suisse.com\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Samsung\",\r\n    \"image\": \"<samsung_logo_url>\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -776,15 +762,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{protocol}}://{{host}}/api/brands/0",
-							"protocol": "{{protocol}}",
+							"raw": "{{baseURL}}/brands/00000000-0000-0000-0000-000000000000",
 							"host": [
-								"{{host}}"
+								"{{baseURL}}"
 							],
 							"path": [
-								"api",
 								"brands",
-								"0"
+								"00000000-0000-0000-0000-000000000000"
 							]
 						}
 					},
@@ -871,15 +855,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{protocol}}://{{host}}/api/brands/0",
-							"protocol": "{{protocol}}",
+							"raw": "{{baseURL}}/brands/00000000-0000-0000-0000-000000000000",
 							"host": [
-								"{{host}}"
+								"{{baseURL}}"
 							],
 							"path": [
-								"api",
 								"brands",
-								"0"
+								"00000000-0000-0000-0000-000000000000"
 							]
 						}
 					},
@@ -961,13 +943,11 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{protocol}}://{{host}}/api/brands/{{brand_id}}",
-							"protocol": "{{protocol}}",
+							"raw": "{{baseURL}}/brands/{{brand_id}}",
 							"host": [
-								"{{host}}"
+								"{{baseURL}}"
 							],
 							"path": [
-								"api",
 								"brands",
 								"{{brand_id}}"
 							]
@@ -1006,6 +986,36 @@
 					"body": ""
 				}
 			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }

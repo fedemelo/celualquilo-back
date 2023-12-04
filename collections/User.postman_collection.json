@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "c5e15b7b-af6d-49d5-be0a-0aabd3e5e52e",
+		"_postman_id": "ec7f5823-99f7-4a23-af40-16d97dfd4b8b",
 		"name": "User",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "30845515",
-		"_collection_link": "https://crimson-resonance-699820.postman.co/workspace/Team-Workspace~40cc1ce4-a435-4edb-80f2-98b1c018dc0f/collection/30845479-c5e15b7b-af6d-49d5-be0a-0aabd3e5e52e?action=share&source=collection_link&creator=30845515"
+		"_collection_link": "https://crimson-resonance-699820.postman.co/workspace/Team-Workspace~40cc1ce4-a435-4edb-80f2-98b1c018dc0f/collection/30845515-ec7f5823-99f7-4a23-af40-16d97dfd4b8b?action=share&source=collection_link&creator=30845515"
 	},
 	"item": [
 		{
@@ -537,10 +537,10 @@
 					},
 					"status": "No Content",
 					"code": 204,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -611,6 +611,36 @@
 					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The user with the given id was not found\"\n}"
 				}
 			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }

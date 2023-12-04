@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "6425bbe5-0f5d-4579-ac4b-f70cbf9d91ae",
+		"_postman_id": "1081b800-4b69-429d-aa2c-61d5068d8658",
 		"name": "Rent",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "30845515",
-		"_collection_link": "https://crimson-resonance-699820.postman.co/workspace/Team-Workspace~40cc1ce4-a435-4edb-80f2-98b1c018dc0f/collection/30845515-6425bbe5-0f5d-4579-ac4b-f70cbf9d91ae?action=share&source=collection_link&creator=30845515"
+		"_collection_link": "https://crimson-resonance-699820.postman.co/workspace/Team-Workspace~40cc1ce4-a435-4edb-80f2-98b1c018dc0f/collection/30845515-1081b800-4b69-429d-aa2c-61d5068d8658?action=share&source=collection_link&creator=30845515"
 	},
 	"item": [
 		{
@@ -55,7 +55,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"Pepito Pérez\",\n    \"email\": \"p.perez@gmail.com\",\n    \"password\": \"pepitoelmejor1234$$\"\n}",
+							"raw": "{\n    \"isActive\": true,\n    \"startDate\": \"2023-11-11T00:00:00.000Z\",\n    \"endDate\": \"2023-12-11T00:00:00.000Z\",\n    \"paymentMethod\": \"Credit card\",\n    \"address\": \"Musterstraße 123\",\n    \"city\": \"Berlin\",\n    \"telephoneNumber\": \"+491234567890\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -85,7 +85,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"id\":\"48a9ab90-1276-11ed-861d-0242ac120005\",\n    \"name\": \"Pepito Pérez\",\n    \"email\": \"p.perez@gmail.com\",\n    \"password\": \"pepitoelmejor1234$$\"\n}"
+					"body": "{\n    \"isActive\": true,\n    \"startDate\": \"2023-11-11T00:00:00.000Z\",\n    \"endDate\": \"2023-12-11T00:00:00.000Z\",\n    \"paymentMethod\": \"Credit card\",\n    \"address\": \"Musterstraße 123\",\n    \"city\": \"Berlin\",\n    \"telephoneNumber\": \"+491234567890\",\n    \"id\": \"bbe2679e-8da4-4fff-bae8-d63fa9ba7a72\"\n}"
 				}
 			]
 		},
@@ -134,7 +134,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"Pepito Pérez\",\n    \"email\": \"p.perez@gmail.com\",\n    \"password\": \"pepitoelmejor1234$$\"\n}",
+							"raw": "{\n    \"isActive\": true,\n    \"startDate\": \"2023-11-11T00:00:00.000Z\",\n    \"endDate\": \"2023-12-11T00:00:00.000Z\",\n    \"paymentMethod\": \"Other\",\n    \"address\": \"Musterstraße 123\",\n    \"city\": \"Berlin\",\n    \"telephoneNumber\": \"+491234567890\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -164,7 +164,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"id\":\"48a9ab90-1276-11ed-861d-0242ac120005\",\n    \"name\": \"Pepito Pérez\",\n    \"email\": \"p.perez@gmail.com\",\n    \"password\": \"pepitoelmejor1234$$\"\n}"
+					"body": "{\n    \"statusCode\": 400,\n    \"message\": [\n        \"paymentMethod must be one of the following values: Cash, Credit card, Debit card\"\n    ],\n    \"error\": \"Bad Request\"\n}"
 				}
 			]
 		},
@@ -213,7 +213,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"Pepito Pérez\",\n    \"email\": \"p.perez@gmail.com\",\n    \"password\": \"pepitoelmejor1234$$\"\n}",
+							"raw": "{\n    \"isActive\": true,\n    \"startDate\": \"2023-11-11T00:00:00.000Z\",\n    \"endDate\": \"2023-12-11T00:00:00.000Z\",\n    \"paymentMethod\": \"Credit card\",\n    \"address\": \"Musterstraße 123\",\n    \"city\": \"Berlin\",\n    \"telephoneNumber\": \"nn4291-34323-44\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -243,7 +243,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"id\":\"48a9ab90-1276-11ed-861d-0242ac120005\",\n    \"name\": \"Pepito Pérez\",\n    \"email\": \"p.perez@gmail.com\",\n    \"password\": \"pepitoelmejor1234$$\"\n}"
+					"body": "{\n    \"statusCode\": 400,\n    \"message\": [\n        \"telephoneNumber must be a valid phone number\"\n    ],\n    \"error\": \"Bad Request\"\n}"
 				}
 			]
 		},
@@ -318,7 +318,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120005\",\n    \"name\": \"Pepito Pérez\",\n    \"email\": \"p.perez@gmail.com\",\n    \"password\": \"pepitoelmejor1234$$\",\n    \"rents\":[],\n    \"reviews\":[],\n    \"favourites\":[]\n}"
+					"body": "{\n    \"id\": \"c766b613-971c-442d-b7b1-4e7a6ff10495\",\n    \"isActive\": true,\n    \"startDate\": \"2023-11-11T00:00:00.000Z\",\n    \"endDate\": \"2023-12-11T00:00:00.000Z\",\n    \"paymentMethod\": \"Credit card\",\n    \"address\": \"Musterstraße 123\",\n    \"city\": \"Berlin\",\n    \"telephoneNumber\": \"+491234567890\"\n}"
 				}
 			]
 		},
@@ -476,7 +476,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "[\n    {\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120005\",\n    \"name\": \"Pepito Pérez\",\n    \"email\": \"p.perez@gmail.com\",\n    \"password\": \"pepitoelmejor1234$$\",\n    \"rents\": [],\n    \"reviews\": [],\n    \"favourites\": []\n    },\n    {\n    \"id\": \"48jdbf40-1286-24fd-3924-024839823744\",\n    \"name\": \"Sofía Rodríguez\",\n    \"email\": \"sofiita.r@hotmail.com\",\n    \"password\": \"sofi932712&&\",\n    \"rents\": [],\n    \"reviews\": [],\n    \"favourites\": []\n    }\n]\n"
+					"body": "[\n    {\n        \"id\": \"bbe2679e-8da4-4fff-bae8-d63fa9ba7a72\",\n        \"isActive\": true,\n        \"startDate\": \"2023-11-11T00:00:00.000Z\",\n        \"endDate\": \"2023-12-11T00:00:00.000Z\",\n        \"paymentMethod\": \"Credit card\",\n        \"address\": \"Musterstraße 123\",\n        \"city\": \"Berlin\",\n        \"telephoneNumber\": \"+491234567890\"\n    },\n    {\n        \"id\": \"c766b613-971c-442d-b7b1-4e7a6ff10495\",\n        \"isActive\": true,\n        \"startDate\": \"2023-11-11T00:00:00.000Z\",\n        \"endDate\": \"2023-12-11T00:00:00.000Z\",\n        \"paymentMethod\": \"Credit card\",\n        \"address\": \"Musterstraße 123\",\n        \"city\": \"Berlin\",\n        \"telephoneNumber\": \"+491234567890\"\n    }\n]"
 				}
 			]
 		},
@@ -557,7 +557,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120005\",\n    \"name\": \"Pepito Pérez\",\n    \"email\": \"p.perez@uniandes.edu.co\",\n    \"password\": \"pepitoelmejor1234$$\"\n}"
+					"body": "{\n    \"id\": \"c766b613-971c-442d-b7b1-4e7a6ff10495\",\n    \"isActive\": true,\n    \"startDate\": \"2023-10-15T08:00:00.000Z\",\n    \"endDate\": \"2023-11-15T08:00:00.000Z\",\n    \"paymentMethod\": \"Cash\",\n    \"address\": \"Hauptstraße 456\",\n    \"city\": \"München\",\n    \"telephoneNumber\": \"+49876543210\"\n}"
 				}
 			]
 		},
@@ -638,7 +638,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120005\",\n    \"name\": \"Pepito Pérez\",\n    \"email\": \"p.perez@uniandes.edu.co\",\n    \"password\": \"pepitoelmejor1234$$\"\n}"
+					"body": "{\n    \"statusCode\": 400,\n    \"message\": [\n        \"paymentMethod must be one of the following values: Cash, Credit card, Debit card\"\n    ],\n    \"error\": \"Bad Request\"\n}"
 				}
 			]
 		},
@@ -719,7 +719,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120005\",\n    \"name\": \"Pepito Pérez\",\n    \"email\": \"p.perez@uniandes.edu.co\",\n    \"password\": \"pepitoelmejor1234$$\"\n}"
+					"body": "{\n    \"statusCode\": 400,\n    \"message\": [\n        \"telephoneNumber must be a valid phone number\"\n    ],\n    \"error\": \"Bad Request\"\n}"
 				}
 			]
 		},
@@ -931,6 +931,36 @@
 					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The rent with the given id was not found\"\n}"
 				}
 			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }

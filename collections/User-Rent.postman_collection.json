@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "b6f4088a-db40-483d-8f15-f916701e4ff1",
+		"_postman_id": "24b3f7de-ef71-459f-a3ee-c4a50f19ba15",
 		"name": "User-Rent",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "30845479",
-		"_collection_link": "https://crimson-resonance-699820.postman.co/workspace/Team-Workspace~40cc1ce4-a435-4edb-80f2-98b1c018dc0f/collection/30845479-b6f4088a-db40-483d-8f15-f916701e4ff1?action=share&source=collection_link&creator=30845479"
+		"_exporter_id": "30845515",
+		"_collection_link": "https://crimson-resonance-699820.postman.co/workspace/Team-Workspace~40cc1ce4-a435-4edb-80f2-98b1c018dc0f/collection/30845515-24b3f7de-ef71-459f-a3ee-c4a50f19ba15?action=share&source=collection_link&creator=30845515"
 	},
 	"item": [
 		{
@@ -1454,10 +1454,10 @@
 					},
 					"status": "No Content",
 					"code": 204,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -1570,6 +1570,36 @@
 					"body": ""
 				}
 			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }

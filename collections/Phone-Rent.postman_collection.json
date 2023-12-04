@@ -1,12 +1,166 @@
 {
 	"info": {
-		"_postman_id": "e6057ba5-3645-4b56-9529-41bb26d787cd",
+		"_postman_id": "97c7ddb2-926f-4eda-84f2-6d566e4a8982",
 		"name": "Phone-Rent",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
-		"_exporter_id": "30845539",
-		"_collection_link": "https://crimson-resonance-699820.postman.co/workspace/Team-Workspace~40cc1ce4-a435-4edb-80f2-98b1c018dc0f/collection/30845479-e6057ba5-3645-4b56-9529-41bb26d787cd?action=share&source=collection_link&creator=30845539"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30845515",
+		"_collection_link": "https://crimson-resonance-699820.postman.co/workspace/Team-Workspace~40cc1ce4-a435-4edb-80f2-98b1c018dc0f/collection/30845515-97c7ddb2-926f-4eda-84f2-6d566e4a8982?action=share&source=collection_link&creator=30845515"
 	},
 	"item": [
+		{
+			"name": "Add a Rent",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"rent_id\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"isActive\": true,\n    \"startDate\": \"2023-11-11T00:00:00.000Z\",\n    \"endDate\": \"2023-12-11T00:00:00.000Z\",\n    \"paymentMethod\": \"Credit card\",\n    \"address\": \"Musterstraße 123\",\n    \"city\": \"Berlin\",\n    \"telephoneNumber\": \"+491234567890\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/rents",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"rents"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add an Rent",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"isActive\": true,\n    \"startDate\": \"2023-11-11T00:00:00.000Z\",\n    \"endDate\": \"2023-12-11T00:00:00.000Z\",\n    \"paymentMethod\": \"Credit card\",\n    \"address\": \"Musterstraße 123\",\n    \"city\": \"Berlin\",\n    \"telephoneNumber\": \"+491234567890\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/rents",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"rents"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"isActive\": true,\n    \"startDate\": \"2023-11-11T00:00:00.000Z\",\n    \"endDate\": \"2023-12-11T00:00:00.000Z\",\n    \"paymentMethod\": \"Credit card\",\n    \"address\": \"Musterstraße 123\",\n    \"city\": \"Berlin\",\n    \"telephoneNumber\": \"+491234567890\",\n    \"id\": \"bbe2679e-8da4-4fff-bae8-d63fa9ba7a72\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a Phone",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"phone_id\",data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\"), function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"IPhone 22\",\r\n    \"pricePerDay\":\"35000\",\r\n    \"stock\":2,\r\n    \"cameraSpecs\":\" 26 mm, ƒ/1.5 aperture, sensor‑shift optical image stabilization, 100% Focus Pixels.\",\r\n    \"memorySpecs\":\"128GB\",\r\n    \"screenSpecs\":\"6.1‑inch (diagonal) all‑screen OLED display\",\r\n    \"isLastGeneration\": false,\r\n    \"isOnSale\":true,\r\n    \"image\":\"https://tiendasishop.com/media/catalog/product/i/p/iphone_14_purple_pdp_image_position-1a_laes.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/phones",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a Phone",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"IPhone 22\",\r\n    \"pricePerDay\":\"35000\",\r\n    \"stock\":2,\r\n    \"cameraSpecs\":\" 26 mm, ƒ/1.5 aperture, sensor‑shift optical image stabilization, 100% Focus Pixels.\",\r\n    \"memorySpecs\":\"128GB\",\r\n    \"screenSpecs\":\"6.1‑inch (diagonal) all‑screen OLED display\",\r\n    \"isLastGeneration\": false,\r\n    \"isOnSale\":true,\r\n    \"image\":\"https://tiendasishop.com/media/catalog/product/i/p/iphone_14_purple_pdp_image_position-1a_laes.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/phones",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"phones"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
 		{
 			"name": "Add Rent of a Phone",
 			"event": [
@@ -35,9 +189,53 @@
 						}
 					}
 				},
-				"url": "{{baseURL}}/phones/{{phone_id}}/rents/{{rent_id}}"
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}/rents/{{rent_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}",
+						"rents",
+						"{{rent_id}}"
+					]
+				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Add Rent of a Phone",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"48a9ab90-1276-11ed-861d-02423ad3243\",\r\n    \"isActive\": true,\r\n    \"startDate\":  \"2023-10-31T01:30:00.000-05:00\",\r\n    \"endDate\":  \"2023-11-26T01:30:00.000-05:00\",\r\n    \"paymentMethod\": \"cash\",\r\n    \"address\": \"Calle 136#48c-21\",\r\n    \"city\": \"Bogotá\",\r\n    \"telephoneNumber\": 3236277382\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/phones/{{phone_id}}/rents/{{rent_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"phones",
+								"{{phone_id}}",
+								"rents",
+								"{{rent_id}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
 		},
 		{
 			"name": "Add invalid Rent of a Phone",
@@ -71,9 +269,53 @@
 						}
 					}
 				},
-				"url": "{{baseURL}}/phones/{{phone_id}}/rents/00000000-0000-0000-0000-000000000000"
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}/rents/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}",
+						"rents",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Add invalid Rent of a Phone",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"99999999\",\r\n    \"isActive\": true,\r\n    \"startDate\":  \"2023-10-31T01:30:00.000-05:00\",\r\n    \"endDate\":  \"2023-11-26T01:30:00.000-05:00\",\r\n    \"paymentMethod\": \"card\",\r\n    \"address\": \"Calle 136#48c-21\",\r\n    \"city\": \"Bogotá\",\r\n    \"telephoneNumber\": 3236277382\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/phones/{{phone_id}}/rents/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"phones",
+								"{{phone_id}}",
+								"rents",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
 		},
 		{
 			"name": "Get Rents of a Phone",
@@ -93,9 +335,42 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "{{baseURL}}/phones/{{phone_id}}/rents"
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}/rents",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}",
+						"rents"
+					]
+				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Get Rents of a Phone",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/phones/{{phone_id}}/rents",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"phones",
+								"{{phone_id}}",
+								"rents"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
 		},
 		{
 			"name": "Get a Rent of a Phone",
@@ -115,9 +390,44 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "{{baseURL}}/phones/{{phone_id}}/rents/{{rent_id}}"
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}/rents/{{rent_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}",
+						"rents",
+						"{{rent_id}}"
+					]
+				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Get a Rent of a Phone",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/phones/{{phone_id}}/rents/{{rent_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"phones",
+								"{{phone_id}}",
+								"rents",
+								"{{rent_id}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
 		},
 		{
 			"name": "Get an invalid Rent of a Phone",
@@ -142,9 +452,44 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "{{baseURL}}/phones/{{phone_id}}/rents/00000000-0000-0000-0000-000000000000"
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}/rents/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}",
+						"rents",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Get an invalid Rent of a Phone",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/phones/{{phone_id}}/rents/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"phones",
+								"{{phone_id}}",
+								"rents",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
 		},
 		{
 			"name": "Update Rents of a Phone",
@@ -173,9 +518,51 @@
 						}
 					}
 				},
-				"url": "{{baseURL}}/phones/{{phone_id}}/rents"
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}/rents",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}",
+						"rents"
+					]
+				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Update Rents of a Phone",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n    \"id\": \"{{rent_id}}\",\r\n    \"isActive\": true,\r\n    \"startDate\":  \"2023-10-31T01:30:00.000-05:00\",\r\n    \"endDate\":  \"2023-11-26T01:30:00.000-05:00\",\r\n    \"paymentMethod\": \"cash\",\r\n    \"address\": \"Calle 136#48c-21\",\r\n    \"city\": \"Bogotá\",\r\n    \"telephoneNumber\": 3236277382\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/phones/{{phone_id}}/rents",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"phones",
+								"{{phone_id}}",
+								"rents"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
 		},
 		{
 			"name": "Update invalid Rents of a Phone",
@@ -209,9 +596,51 @@
 						}
 					}
 				},
-				"url": "{{baseURL}}/phones/{{phone_id}}/rents"
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}/rents",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}",
+						"rents"
+					]
+				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Update invalid Rents of a Phone",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": \"00000000-0000-0000-0000-000000000000\",\r\n        \"isActive\": true,\r\n        \"startDate\":  \"2023-10-31T01:30:00.000-05:00\",\r\n        \"endDate\":  \"2023-11-26T01:30:00.000-05:00\",\r\n        \"paymentMethod\": \"cash\",\r\n        \"address\": \"Calle 136#48c-21\",\r\n        \"city\": \"Bogotá\",\r\n        \"telephoneNumber\": 3236277382\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/phones/{{phone_id}}/rents",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"phones",
+								"{{phone_id}}",
+								"rents"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
 		},
 		{
 			"name": "Delete Rent of a Phone",
@@ -240,9 +669,53 @@
 						}
 					}
 				},
-				"url": "{{baseURL}}/phones/{{phone_id}}/rents/{{rent_id}}"
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}/rents/{{rent_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}",
+						"rents",
+						"{{rent_id}}"
+					]
+				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Delete Rent of a Phone",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/phones/{{phone_id}}/rents/{{rent_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"phones",
+								"{{phone_id}}",
+								"rents",
+								"{{rent_id}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
 		},
 		{
 			"name": "Delete invalid Rent of a Phone",
@@ -276,9 +749,191 @@
 						}
 					}
 				},
-				"url": "{{baseURL}}/phones/{{phone_id}}/rents/00000000-0000-0000-0000-000000000000"
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}/rents/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}",
+						"rents",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Delete invalid Rent of a Phone",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"99999999\",\r\n    \"isActive\": true,\r\n    \"startDate\":  \"2023-10-31T01:30:00.000-05:00\",\r\n    \"endDate\":  \"2023-11-26T01:30:00.000-05:00\",\r\n    \"paymentMethod\": \"card\",\r\n    \"address\": \"Calle 136#48c-21\",\r\n    \"city\": \"Bogotá\",\r\n    \"telephoneNumber\": 3236277382\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/phones/{{phone_id}}/rents/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"phones",
+								"{{phone_id}}",
+								"rents",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete A Phone",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete A Phone",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/phones/{{phone_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"phones",
+								"{{phone_id}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete an Rent",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"   pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/rents/{{rent_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"rents",
+						"{{rent_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete an Rent",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/rents/{{rent_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"rents",
+								"{{rent_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }
