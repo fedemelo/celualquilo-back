@@ -45,6 +45,13 @@ describe('UserService', () => {
         expect(Users).toHaveLength(usersList.length);
     });
 
+    it('findAll should return an empty array', async () => {
+        await repository.clear();
+        const Users: UserEntity[] = await service.findAll();
+        expect(Users).not.toBeNull();
+        expect(Users).toHaveLength(0);
+    });
+
     it('findOne should return a User by id', async () => {
         const storedUser: UserEntity = usersList[0];
         const User: UserEntity = await service.findOne(storedUser.id);

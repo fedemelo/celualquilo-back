@@ -76,6 +76,13 @@ describe('RentService', () => {
         expect(Rents).toHaveLength(rentsList.length);
     });
 
+    it('findAll should return an empty array', async () => {
+        await repository.clear();
+        const Rents: RentEntity[] = await service.findAll();
+        expect(Rents).not.toBeNull();
+        expect(Rents).toHaveLength(0);
+    });
+
     it('findOne should return a Rent by id', async () => {
         const storedRent: RentEntity = rentsList[0];
         const Rent: RentEntity = await service.findOne(storedRent.id);

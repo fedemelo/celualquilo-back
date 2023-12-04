@@ -48,6 +48,13 @@ describe('ReviewService', () => {
     expect(reviews).toHaveLength(reviewList.length);
   });
 
+    it('findAll should return an empty array', async () => {
+        await repository.clear();
+        const reviews = await service.findAll();
+        expect(reviews).not.toBeNull();
+        expect(reviews).toHaveLength(0);
+    });
+
   it('findOne should return a review by id', async () => {
     const storedReview = reviewList[0];
     const review = await service.findOne(storedReview.id);

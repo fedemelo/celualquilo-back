@@ -47,6 +47,13 @@ describe('BrandService', () => {
         expect(Brands).toHaveLength(brandsList.length);
     });
 
+    it('findAll should return an empty array', async () => {
+        await repository.clear();
+        const Brands: BrandEntity[] = await service.findAll();
+        expect(Brands).not.toBeNull();
+        expect(Brands).toHaveLength(0);
+    });
+
     it('findOne should return a Brand by id', async () => {
         const storedBrand: BrandEntity = brandsList[0];
         const Brand: BrandEntity = await service.findOne(storedBrand.id);

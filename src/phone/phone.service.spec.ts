@@ -52,6 +52,13 @@ describe('PhoneService', () => {
     expect(phones).toHaveLength(phonesList.length);
   });
 
+    it('findAll should return an empty array', async () => {
+        await repository.clear();
+        const phones: PhoneEntity[] = await service.findAll();
+        expect(phones).not.toBeNull();
+        expect(phones).toHaveLength(0);
+    });
+
   it('findOne should return a phone by id', async () => {
     const storedPhone: PhoneEntity = phonesList[0];
     const phone: PhoneEntity = await service.findOne(storedPhone.id);
