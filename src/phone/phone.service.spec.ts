@@ -6,10 +6,12 @@ import { PhoneEntity } from './phone.entity';
 import { PhoneService } from './phone.service';
 
 import { faker } from '@faker-js/faker';
+import { UserEntity } from '../user/user.entity';
 
 describe('PhoneService', () => {
   let service: PhoneService;
   let repository: Repository<PhoneEntity>;
+  let userRepository: Repository<UserEntity>;
   let phonesList: PhoneEntity[];
 
   beforeEach(async () => {
@@ -20,13 +22,14 @@ describe('PhoneService', () => {
 
     service = module.get<PhoneService>(PhoneService);
     repository = module.get<Repository<PhoneEntity>>(getRepositoryToken(PhoneEntity));
+    userRepository = module.get<Repository<UserEntity>>(getRepositoryToken(UserEntity));
     await seedDatabase();
   });
 
   const seedDatabase = async () => {
     repository.clear();
     phonesList = [];
-    for(let i = 0; i < 5; i++){
+    for (let i = 0; i < 5; i++) {
       const phone: PhoneEntity = await repository.save({
         name: faker.lorem.word(),
         pricePerDay: faker.commerce.price(),
@@ -36,12 +39,12 @@ describe('PhoneService', () => {
         screenSpecs: faker.lorem.sentence(),
         isLastGeneration: faker.datatype.boolean(),
         isOnSale: faker.datatype.boolean(),
-        image: faker.image.url(),      
-    })
-    phonesList.push(phone);
+        image: faker.image.url(),
+      })
+      phonesList.push(phone);
+    }
   }
-  }
-    
+
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
@@ -52,12 +55,12 @@ describe('PhoneService', () => {
     expect(phones).toHaveLength(phonesList.length);
   });
 
-    it('findAll should return an empty array', async () => {
-        await repository.clear();
-        const phones: PhoneEntity[] = await service.findAll();
-        expect(phones).not.toBeNull();
-        expect(phones).toHaveLength(0);
-    });
+  it('findAll should return an empty array', async () => {
+    await repository.clear();
+    const phones: PhoneEntity[] = await service.findAll();
+    expect(phones).not.toBeNull();
+    expect(phones).toHaveLength(0);
+  });
 
   it('findOne should return a phone by id', async () => {
     const storedPhone: PhoneEntity = phonesList[0];
@@ -99,7 +102,7 @@ describe('PhoneService', () => {
     const newPhone: PhoneEntity = await service.create(phone);
     expect(newPhone).not.toBeNull();
 
-    const storedPhone: PhoneEntity = await repository.findOne({where: {id: newPhone.id}})
+    const storedPhone: PhoneEntity = await repository.findOne({ where: { id: newPhone.id } })
     expect(storedPhone).not.toBeNull();
     expect(storedPhone.name).toEqual(newPhone.name)
     expect(storedPhone.pricePerDay).toEqual(newPhone.pricePerDay)
@@ -126,7 +129,7 @@ describe('PhoneService', () => {
 
     const updatedPhone: PhoneEntity = await service.update(phone.id, phone);
     expect(updatedPhone).not.toBeNull();
-  
+
     const storedPhone: PhoneEntity = await repository.findOne({ where: { id: phone.id } })
     expect(storedPhone).not.toBeNull();
     expect(storedPhone.name).toEqual(phone.name)
@@ -139,7 +142,7 @@ describe('PhoneService', () => {
     expect(storedPhone.isOnSale).toEqual(phone.isOnSale)
     expect(storedPhone.image).toEqual(phone.image)
   });
- 
+
   it('update should throw an exception for an invalid phone', async () => {
     let phone: PhoneEntity = phonesList[0];
     phone = {
@@ -151,7 +154,7 @@ describe('PhoneService', () => {
   it('delete should remove a phone', async () => {
     const phone: PhoneEntity = phonesList[0];
     await service.delete(phone.id);
-  
+
     const deletedPhone: PhoneEntity = await repository.findOne({ where: { id: phone.id } })
     expect(deletedPhone).toBeNull();
   });
@@ -161,5 +164,66 @@ describe('PhoneService', () => {
     await service.delete(phone.id);
     await expect(() => service.delete("0")).rejects.toHaveProperty("message", "The phone with the given id was not found")
   });
+
+  it('addUser should add a user to a phone', async () => {
+    const phone: PhoneEntity = phonesList[0];
+    const user: UserEntity = await userRepository.save({
+      id: "",
+      name: faker.lorem.word(),
+      email: "emaildeprueba@gmail.com",
+      password: "Password123$$",
+      favorites: [],
+      reviews: [],
+      rents: []
+    })
+
+    const updatedPhone: PhoneEntity = await service.addUser(phone.id, user.id);
+    expect(updatedPhone).not.toBeNull();
+    expect(updatedPhone.user).not.toBeNull();
+    expect(updatedPhone.user.id).toEqual(user.id);
+  });
+
+  it('addUser should throw an exception for an invalid phone', async () => {
+    const user: UserEntity = await userRepository.save({
+      id: "",
+      name: faker.lorem.word(),
+      email: "emaildeprueba@gmail.com",
+      password: "Password123$$",
+      favorites: [],
+      reviews: [],
+      rents: []
+    })
+
+    await expect(() => service.addUser("0", user.id)).rejects.toHaveProperty("message", "The phone with the given id was not found")
+  });
+
+  it('addUser should throw an exception for an invalid user', async () => {
+    const phone: PhoneEntity = phonesList[0];
+    await expect(() => service.addUser(phone.id, "0")).rejects.toHaveProperty("message", "The user with the given id was not found")
+  });
+
+  it('removeUser should remove a user from a phone', async () => {
+    const phone: PhoneEntity = phonesList[0];
+    const user: UserEntity = await userRepository.save({
+      id: "",
+      name: faker.lorem.word(),
+      email: "emaildeprueba@gmail.com",
+      password: "Password123$$",
+      favorites: [],
+      reviews: [],
+      rents: []
+    })
+    await service.addUser(phone.id, user.id);
+
+    const updatedPhone: PhoneEntity = await service.removeUser(phone.id);
+    expect(updatedPhone).not.toBeNull();
+    expect(updatedPhone.user).toBeNull();
+  });
+
+  it('removeUser should throw an exception for an invalid phone', async () => {
+    await expect(() => service.removeUser("0")).rejects.toHaveProperty("message", "The phone with the given id was not found")
+  });
  
+
+
 });

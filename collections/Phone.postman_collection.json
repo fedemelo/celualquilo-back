@@ -1,10 +1,9 @@
 {
 	"info": {
-		"_postman_id": "4e434fb3-a717-4699-b67b-b4cea2b2e22f",
+		"_postman_id": "5aa0a1d1-7682-4f02-b8d7-a6a9e45cf054",
 		"name": "Phone",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "30845515",
-		"_collection_link": "https://crimson-resonance-699820.postman.co/workspace/Team-Workspace~40cc1ce4-a435-4edb-80f2-98b1c018dc0f/collection/30845515-4e434fb3-a717-4699-b67b-b4cea2b2e22f?action=share&source=collection_link&creator=30845515"
+		"_exporter_id": "27539264"
 	},
 	"item": [
 		{
@@ -72,10 +71,10 @@
 							]
 						}
 					},
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -128,10 +127,10 @@
 							]
 						}
 					},
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -181,10 +180,10 @@
 							]
 						}
 					},
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -239,10 +238,586 @@
 							]
 						}
 					},
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Add an User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"user_id\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Pepito Pérez\",\n    \"email\": \"p.perez@gmail.com\",\n    \"password\": \"Pepitoelmejor1234$$\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/users",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add an User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Pepito Pérez\",\n    \"email\": \"p.perez@gmail.com\",\n    \"password\": \"pepitoelmejor1234$$\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\":\"48a9ab90-1276-11ed-861d-0242ac120005\",\n    \"name\": \"Pepito Pérez\",\n    \"email\": \"p.perez@gmail.com\",\n    \"password\": \"pepitoelmejor1234$$\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a user to a phone",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwic3ViIjoxLCJyb2xlcyI6WyJhZG1pbiJdLCJpYXQiOjE3MDE3MzY0MzZ9.zLV7gPyMihoeBtZaF-Y322tZNYXHl4xc6TWs6wM2X3E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}/users/{{user_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}",
+						"users",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a user to a phone",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/phones/{{phone_id}}/users/{{user_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"phones",
+								"{{phone_id}}",
+								"users",
+								"{{user_id}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"44abfd31-020b-49f9-94f1-96c3107ab50e\",\n    \"name\": \"IPhone 22\",\n    \"pricePerDay\": \"35000\",\n    \"stock\": 2,\n    \"cameraSpecs\": \" 26 mm, ƒ/1.5 aperture, sensor‑shift optical image stabilization, 100% Focus Pixels.\",\n    \"memorySpecs\": \"128GB\",\n    \"screenSpecs\": \"6.1‑inch (diagonal) all‑screen OLED display\",\n    \"isLastGeneration\": false,\n    \"isOnSale\": true,\n    \"image\": \"https://tiendasishop.com/media/catalog/product/i/p/iphone_14_purple_pdp_image_position-1a_laes.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700\",\n    \"user\": {\n        \"id\": \"df01be6c-a587-4816-a54d-16e7c2b0ad06\",\n        \"name\": \"Pepito Pérez\",\n        \"email\": \"p.perez@gmail.com\",\n        \"password\": \"Pepitoelmejor1234$$\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a user to an invalid phone",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The phone with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwic3ViIjoxLCJyb2xlcyI6WyJhZG1pbiJdLCJpYXQiOjE3MDE3MzY0MzZ9.zLV7gPyMihoeBtZaF-Y322tZNYXHl4xc6TWs6wM2X3E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/phones/00000000-0000-0000-0000-000000000000/users/{{user_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"00000000-0000-0000-0000-000000000000",
+						"users",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a user to an invalid phone",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/phones/00000000-0000-0000-0000-000000000000/users/{{user_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"phones",
+								"00000000-0000-0000-0000-000000000000",
+								"users",
+								"{{user_id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The phone with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add an invalid user to a phone",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The user with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwic3ViIjoxLCJyb2xlcyI6WyJhZG1pbiJdLCJpYXQiOjE3MDE3MzY0MzZ9.zLV7gPyMihoeBtZaF-Y322tZNYXHl4xc6TWs6wM2X3E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}/users/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}",
+						"users",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add an invalid user to a phone",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/phones/{{phone_id}}/users/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"phones",
+								"{{phone_id}}",
+								"users",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The user with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get A Phone Copy 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get A Phone",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/phones/{{phone_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"phones",
+								"{{phone_id}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "delete the user of a phone",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwic3ViIjoxLCJyb2xlcyI6WyJhZG1pbiJdLCJpYXQiOjE3MDE3MzY0MzZ9.zLV7gPyMihoeBtZaF-Y322tZNYXHl4xc6TWs6wM2X3E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}/users",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}",
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "delete the user of a phone",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/phones/{{phone_id}}/users",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"phones",
+								"{{phone_id}}",
+								"users"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
 					"_postman_previewlanguage": null,
 					"header": null,
 					"cookie": [],
 					"body": null
+				}
+			]
+		},
+		{
+			"name": "delete the user of an invalid phone",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The phone with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwic3ViIjoxLCJyb2xlcyI6WyJhZG1pbiJdLCJpYXQiOjE3MDE3MzY0MzZ9.zLV7gPyMihoeBtZaF-Y322tZNYXHl4xc6TWs6wM2X3E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/phones/00000000-0000-0000-0000-000000000000/users",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"00000000-0000-0000-0000-000000000000",
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "delete the user of an invalid phone",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/phones/00000000-0000-0000-0000-000000000000/users",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"phones",
+								"00000000-0000-0000-0000-000000000000",
+								"users"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The phone with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get A Phone Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/phones/{{phone_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"phones",
+						"{{phone_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get A Phone",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/phones/{{phone_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"phones",
+								"{{phone_id}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
 				}
 			]
 		},
@@ -310,10 +885,10 @@
 							]
 						}
 					},
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -386,10 +961,10 @@
 							]
 						}
 					},
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -439,10 +1014,10 @@
 							]
 						}
 					},
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -497,10 +1072,10 @@
 							]
 						}
 					},
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		}

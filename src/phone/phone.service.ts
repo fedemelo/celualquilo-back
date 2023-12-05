@@ -3,13 +3,17 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { PhoneEntity } from './phone.entity';
 import { BusinessError, BusinessLogicException } from '../shared/errors/business-errors';
+import { UserEntity } from '../user/user.entity';
 
 @Injectable()
 export class PhoneService {
 
     constructor(
         @InjectRepository(PhoneEntity)
-        private readonly phoneRepository: Repository<PhoneEntity>
+        private readonly phoneRepository: Repository<PhoneEntity>,
+
+        @InjectRepository(UserEntity)
+        private readonly userRepository: Repository<UserEntity>
     ){}
 
     async findAll(): Promise<PhoneEntity[]> {
@@ -42,5 +46,29 @@ export class PhoneService {
           throw new BusinessLogicException("The phone with the given id was not found", BusinessError.NOT_FOUND);
      
         await this.phoneRepository.remove(phone);
+    }
+
+    async addUser(id: string, userId: string): Promise<PhoneEntity> {
+        const phone: PhoneEntity = await this.phoneRepository.findOne({where:{id}});
+        if (!phone)
+          throw new BusinessLogicException("The phone with the given id was not found", BusinessError.NOT_FOUND);
+        
+        const user: UserEntity = await this.userRepository.findOne({where:{id: userId}});
+        if (!user)
+          throw new BusinessLogicException("The user with the given id was not found", BusinessError.NOT_FOUND);
+
+        phone.user = user;
+
+        return await this.phoneRepository.save(phone);
+    }
+
+    async removeUser(id: string): Promise<PhoneEntity> {
+        const phone: PhoneEntity = await this.phoneRepository.findOne({where:{id}});
+        if (!phone)
+          throw new BusinessLogicException("The phone with the given id was not found", BusinessError.NOT_FOUND);
+        
+        phone.user = null;
+
+        return await this.phoneRepository.save(phone);
     }
 }

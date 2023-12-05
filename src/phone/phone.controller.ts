@@ -51,5 +51,20 @@ export class PhoneController {
     async delete(@Param('phoneId') phoneId: string) {
         return await this.phoneService.delete(phoneId);
     }
+
+    @UseGuards(JwtAuthGuard, RoleGuard)
+    @Roles('admin', 'phone', 'writer')
+    @Post(':phoneId/users/:userId')
+    async addUser(@Param('phoneId') phoneId: string, @Param('userId') userId: string) {
+        return await this.phoneService.addUser(phoneId, userId);
+    }
+
+    @UseGuards(JwtAuthGuard, RoleGuard)
+    @Roles('admin', 'phone', 'writer')
+    @Delete(':phoneId/users')
+    @HttpCode(204)
+    async removeUser(@Param('phoneId') phoneId: string) {
+        return await this.phoneService.removeUser(phoneId);
+    }
     
 }
