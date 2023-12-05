@@ -46,7 +46,7 @@ export class UserRentService {
    }
    
    async findRentsByUserId(userId: string): Promise<RentEntity[]> {
-       const user: UserEntity = await this.userRepository.findOne({where: {id: userId}, relations: ["rents"]});
+       const user: UserEntity = await this.userRepository.findOne({where: {id: userId}, relations: ["rents", "rents.phone"]});
        if (!user)
          throw new BusinessLogicException("The user with the given id was not found", BusinessError.NOT_FOUND)
       
