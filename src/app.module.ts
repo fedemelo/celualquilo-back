@@ -20,26 +20,26 @@ import { UserAuthModule } from './user-auth/user-auth.module';
 import { AuthModule } from './auth/auth.module';
 
 @Module({
-  imports: [PhoneModule, BrandModule, RentModule, ReviewModule, UserModule,
-  TypeOrmModule.forRoot({
-    type: 'postgres',
-    host: 'localhost',
-    port: 5432,
-    username: 'postgres',
-    password:'postgres',
-    database: 'celualquilo',
-    entities: [PhoneEntity, BrandEntity, RentEntity, ReviewEntity, UserEntity],
-    dropSchema: true,
-    synchronize: true,
-    keepConnectionAlive: true,
-  }),
-  UserRentModule,
-  PhoneRentModule,
-  PhoneReviewModule,
-  UserAuthModule,
-  AuthModule,
-],
-  controllers: [AppController],
-  providers: [AppService],
+    imports: [PhoneModule, BrandModule, RentModule, ReviewModule, UserModule,
+        TypeOrmModule.forRoot({
+            type: 'postgres',
+            host: 'localhost',
+            port: 5432,
+            username: 'postgres',
+            password: 'postgres',
+            database: 'celualquilo',
+            entities: [PhoneEntity, BrandEntity, RentEntity, ReviewEntity, UserEntity],
+            dropSchema: true,
+            synchronize: true,
+            keepConnectionAlive: true,
+        }),
+        UserRentModule,
+        PhoneRentModule,
+        PhoneReviewModule,
+        UserAuthModule,
+        AuthModule,
+    ],
+    controllers: [AppController],
+    providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }

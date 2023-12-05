@@ -24,11 +24,11 @@ export class RentService {
     ) { }
 
     async findAll(): Promise<RentEntity[]> {
-        return await this.rentRepository.find({ relations : ["phone"]});
+        return await this.rentRepository.find({ relations: ["phone"] });
     }
 
     async findOne(rentId: string): Promise<RentEntity> {
-        const rent = await this.rentRepository.findOne({ where: { id: rentId }, relations : ["phone"]});
+        const rent = await this.rentRepository.findOne({ where: { id: rentId }, relations: ["phone"] });
         if (!rent)
             throw new BusinessLogicException(this.RENT_NOT_FOUND, BusinessError.NOT_FOUND)
         return rent;
