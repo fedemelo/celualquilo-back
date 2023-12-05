@@ -60,4 +60,12 @@ export class UserService {
         await this.userRepository.remove(user);
     }
 
+    async findByEmailandPassword(email: string, password: string): Promise<UserEntity> {
+        const user: UserEntity = await this.userRepository.findOne({where: {email, password}});
+        if (!user) {
+            throw new BusinessLogicException("The user with the given email and password was not found", BusinessError.NOT_FOUND);
+        }
+        return user;
+    }
+
 }

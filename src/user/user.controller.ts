@@ -62,4 +62,13 @@ export class UserController {
   async delete(@Param('userId') userId: string) {
     return await this.userService.delete(userId);
   }
+
+  @UseGuards(JwtAuthGuard, RoleGuard)
+  @Roles('admin', 'user', 'reader')
+  @Get('bypassword/:email/:password')
+  async findByEmailandPassword(@Param('email') email: string, @Param('password') password: string) {
+    const user = await this.userService.findByEmailandPassword(email, password);
+    delete user.password;
+    return user;
+  }
 }

@@ -179,5 +179,24 @@ describe('UserService', () => {
         await expect(() => service.delete("0")).rejects.toHaveProperty("message", "The user with the given id was not found")
     });
 
+    it('findByEmailandPassword should return a User by email and password', async () => {
+        const storedUser: UserEntity = usersList[0];
+        const User: UserEntity = await service.findByEmailandPassword(storedUser.email, storedUser.password);
+        expect(User).not.toBeNull();
+        expect(User.name).toEqual(storedUser.name)
+        expect(User.email).toEqual(storedUser.email)
+        expect(User.password).toEqual(storedUser.password)
+    });
+
+    it('findByEmailandPassword should throw an exception for an invalid User', async () => {
+        const storedUser: UserEntity = usersList[0];
+        await expect(() => service.findByEmailandPassword(storedUser.email, "0")).rejects.toHaveProperty("message", "The user with the given email and password was not found")
+    });
+
+    it('findByEmailandPassword should throw an exception for an invalid email', async () => {
+        const storedUser: UserEntity = usersList[0];
+        await expect(() => service.findByEmailandPassword("email invalido", storedUser.password)).rejects.toHaveProperty("message", "The user with the given email and password was not found")
+    });
+
 });
 
