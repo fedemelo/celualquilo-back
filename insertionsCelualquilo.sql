@@ -27,6 +27,7 @@ CREATE TABLE public.phone_entity (
     "isOnSale" BOOLEAN NOT NULL,
     "image" VARCHAR(255),
     "userId" UUID NOT NULL,
+    "brandId" UUID NOT NULL,
     FOREIGN KEY ("userId") REFERENCES public.user_entity(id)
 );
 
@@ -53,8 +54,8 @@ CREATE TABLE public.review_entity (
     id UUID PRIMARY KEY,
     rating NUMERIC(3, 1) NOT NULL,
     text TEXT NOT NULL,
-    "phoneId" UUID NOT NULL,
-    "userId" UUID NOT NULL
+    "phoneId" UUID,
+    "userId" UUID
 );
 
 -- Populate database
@@ -99,7 +100,8 @@ INSERT INTO
         "isLastGeneration",
         "isOnSale",
         "image",
-        "userId"
+        "userId",
+        "brandId"
     )
 VALUES
     (
@@ -109,11 +111,12 @@ VALUES
         5,
         '24 mm, ƒ/1.7 aperture, optical image stabilization, Dual Pixel autofocus.',
         '256GB',
-        '6.2‑inch (diagonal) Dynamic AMOLED display',
+        '6.2-inch (diagonal) Dynamic AMOLED display',
         TRUE,
         FALSE,
         'https://smselectronic.com/wp-content/uploads/2022/02/sm-s901_Negro_01.jpg',
-        '9cb0662e-ce15-4077-8003-dbfc5cfe6818'
+        '9cb0662e-ce15-4077-8003-dbfc5cfe6818',
+        'e9f7fe92-bf99-6432-86d1-49d0f3a0ec15' -- Samsung
     ),
     (
         'e9f7fe92-bf99-1234-86d1-49d0f3a0ec15',
@@ -122,11 +125,12 @@ VALUES
         8,
         '28 mm, ƒ/1.8 aperture, Dual Pixel phase detection autofocus, OIS.',
         '128GB',
-        '6.0‑inch (diagonal) AMOLED display',
+        '6.0-inch (diagonal) AMOLED display',
         FALSE,
         TRUE,
         'https://m.media-amazon.com/images/I/7173p0j-mbL.jpg',
-        '9cb0662e-ce15-4077-8003-dbfc5cfe6818'
+        '9cb0662e-ce15-4077-8003-dbfc5cfe6818',
+        'f9e8d7c6-b5a4-1982-5263-fedcba987654' -- Google
     ),
     (
         'e9f7fe92-bf99-2876-86d1-49d0f3a0ec15',
@@ -135,11 +139,12 @@ VALUES
         3,
         '23 mm, ƒ/1.9 aperture, laser autofocus, OIS.',
         '256GB',
-        '6.4‑inch (diagonal) Fluid AMOLED display',
+        '6.4-inch (diagonal) Fluid AMOLED display',
         TRUE,
         FALSE,
         'https://m.media-amazon.com/images/I/81qOD8EZTjL.jpg',
-        '9cb0662e-ce15-4078-8055-dbfc5cfe6818'
+        '9cb0662e-ce15-4078-8055-dbfc5cfe6818',
+        'a9f8d7c6-b5a4-2212-3432-fedcba987654' -- OnePlus
     ),
     (
         'e9f7fe92-bf99-5321-86d1-49d0f3a0ec15',
@@ -148,11 +153,12 @@ VALUES
         6,
         '27 mm, ƒ/1.6 aperture, phase detection autofocus, 8-axis OIS.',
         '128GB',
-        '6.5‑inch (diagonal) Super AMOLED display',
+        '6.5-inch (diagonal) Super AMOLED display',
         FALSE,
         TRUE,
         'https://micelu.co/wp-content/uploads/2022/12/XIAOMI-12-NEGRO.jpg',
-        '9cb0662e-ce15-4078-8055-dbfc5cfe6818'
+        '9cb0662e-ce15-4078-8055-dbfc5cfe6818',
+        'a1b2c3d4-e5f6-a7b8-9cde-0123456789ab' -- Xiaomi
     ),
     (
         'e9f7fe92-bf99-4747-86d1-49d0f3a0ec15',
@@ -161,11 +167,12 @@ VALUES
         10,
         '29 mm, ƒ/1.4 aperture, Dual Pixel autofocus, 5-axis OIS.',
         '64GB',
-        '6.3‑inch (diagonal) Super AMOLED display',
+        '6.3-inch (diagonal) Super AMOLED display',
         FALSE,
         TRUE,
         'https://m.media-amazon.com/images/I/51eOhGOaHQL.jpg',
-        '9cb0662e-ce15-4079-8078-dbfc5cfe6818'
+        '9cb0662e-ce15-4079-8078-dbfc5cfe6818',
+        'e9f7fe92-bf99-6432-86d1-49d0f3a0ec15' -- Samsung
     ),
     (
         'e9f7fe92-bf99-2134-86d1-49d0f3a0ec15',
@@ -174,11 +181,12 @@ VALUES
         4,
         '24 mm, ƒ/1.7 aperture, Dual Pixel PDAF, 3-axis gyro EIS.',
         '256GB',
-        '6.1‑inch (diagonal) HDR OLED display',
+        '6.1-inch (diagonal) HDR OLED display',
         TRUE,
         FALSE,
         'https://www.sony.es/image/11b000ac0e8f20fe24151fd2d5a03d1b?fmt=pjpeg&wid=330&bgcolor=FFFFFF&bgc=FFFFFF',
-        '9cb0662e-ce15-4079-8078-dbfc5cfe6818'
+        '9cb0662e-ce15-4079-8078-dbfc5cfe6818',
+        'd923d7c6-b5a4-1023-1253-fedcba987654' -- Sony
     ),
     (
         'e9f7fe92-bf99-1243-86d1-49d0f3a0ec15',
@@ -187,11 +195,12 @@ VALUES
         7,
         '50 MP, ƒ/1.8 aperture, omnidirectional PDAF, 5-axis gyro-EIS.',
         '128GB',
-        '6.6‑inch (diagonal) OLED display',
+        '6.6-inch (diagonal) OLED display',
         FALSE,
         TRUE,
         'https://http2.mlstatic.com/D_NQ_NP_888882-MLA49739271414_042022-O.webp',
-        '9cb0662e-ce15-41b9-8078-dbfc5cfe6818'
+        '9cb0662e-ce15-41b9-8078-dbfc5cfe6818',
+        'f9e8d7c6-b5a4-4321-9876-fedcba987654' -- Huawei
     ),
     (
         'e9f7fe92-bf99-6432-86d1-49d0f3a0ec15',
@@ -200,11 +209,12 @@ VALUES
         8,
         '27 mm, ƒ/1.8 aperture, phase detection autofocus, OIS.',
         '128GB',
-        '6.1‑inch (diagonal) P-OLED display',
+        '6.1-inch (diagonal) P-OLED display',
         TRUE,
         FALSE,
         'https://m.media-amazon.com/images/I/61t3XDcEwCL.AC_UF894,1000_QL80.jpg',
-        '9cb0662e-ce15-41b9-8078-dbfc5cfe6818'
+        '9cb0662e-ce15-41b9-8078-dbfc5cfe6818',
+        'a9e8d7c6-b5a4-9273-1232-fedcba987654' -- LG
     ),
     (
         'e9f7fe92-bf98-9876-86d1-49d0f3a0ec15',
@@ -213,11 +223,12 @@ VALUES
         8,
         '26 mm, ƒ/1.8 aperture, laser autofocus, IOS.',
         '128GB',
-        '6.1‑inch (diagonal) P-OLED display',
+        '6.1-inch (diagonal) P-OLED display',
         TRUE,
         FALSE,
         'https://assets.stickpng.com/images/61d2f85b92b57c0004c64745.png',
-        '9cb0662e-ce15-41b9-8078-dbfc5cfe6818'
+        '9cb0662e-ce15-41b9-8078-dbfc5cfe6818',
+        '12345678-90ab-cdef-0123-456789abcdef' -- Apple
     ),
     (
         'e9f7fe92-bf98-6767-86d1-49d0f3a0ec15',
@@ -226,12 +237,14 @@ VALUES
         8,
         '28 mm, ƒ/1.6 aperture, autofocus, IOS.',
         '128GB',
-        '6.1‑inch (diagonal) P-OLED display',
+        '6.1-inch (diagonal) P-OLED display',
         TRUE,
         FALSE,
         'https://s13emagst.akamaized.net/products/48592/48591223/images/res_0a49cd835e308621c4ce9f501418d2a5.jpg',
-        '9cb0662e-ce15-4078-8055-dbfc5cfe6818'
+        '9cb0662e-ce15-4078-8055-dbfc5cfe6818',
+        '12345678-90ab-cdef-0123-456789abcdef' -- Apple
     );
+
 
 INSERT INTO
     public.brand_entity (id, name, image)
