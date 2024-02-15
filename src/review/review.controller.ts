@@ -7,6 +7,7 @@ import { ReviewDto } from './review.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RoleGuard } from '../user-auth/role.guard';
 import { Roles } from '../user-auth/roles.decorator';
+import { v4 as uuidv4 } from 'uuid';
 
 @Controller('reviews')
 @UseInterceptors(BusinessErrorsInterceptor)
@@ -31,6 +32,7 @@ export class ReviewController {
     @Roles('admin', 'review', 'writer')
     @Post()
     async create(@Body() reviewDto: any) {
+        reviewDto.id = uuidv4();
         const review:ReviewEntity = plainToInstance(ReviewEntity, reviewDto);
         return await this.reviewService.create(review);
     }
